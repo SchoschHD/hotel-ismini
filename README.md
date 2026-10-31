@@ -44,6 +44,12 @@ npm run dev
 
 Stop the server with `Ctrl+C`.
 
+If you open the HTML files through VS Code Live Server or another local preview
+(for example on port 5500), start the backend with `npm start` as well. The
+booking page automatically uses `http://localhost:3000/api` in that setup.
+Opening the page without the backend cannot perform availability checks or save
+bookings.
+
 ## Tests
 
 ```powershell

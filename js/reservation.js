@@ -21,6 +21,8 @@ export function initReservation() {
   const status = form.querySelector(".form-status");
   const submit = form.querySelector('button[type="submit"]');
   const dateInput = form.elements.date;
+  const updateDateLanguage = () => { dateInput.lang = document.documentElement.lang || "en"; };
+  updateDateLanguage();
   dateInput.min = todayInAthens();
 
   // Regeln: Feldname -> [Prüffunktion, Fehlerschlüssel]
@@ -46,6 +48,7 @@ export function initReservation() {
 
   // Fehlertexte beim Sprachwechsel aktualisieren
   document.addEventListener("languagechange", () => {
+    updateDateLanguage();
     if (form.querySelector('[aria-invalid="true"]')) validate();
   });
 

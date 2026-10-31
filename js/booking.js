@@ -13,7 +13,12 @@
    ========================================================== */
 import { t, getLanguage } from "./i18n/i18n.js";
 
-const API = { availability: "/api/availability", bookings: "/api/bookings" };
+// Bei Live Server/VS Code Preview liegt die Website oft auf Port 5500,
+// während die API auf dem lokalen Backend-Port 3000 läuft.
+const API_ORIGIN = window.location.protocol === "file:" ||
+  (["localhost", "127.0.0.1", "::1"].includes(window.location.hostname) &&
+    window.location.port !== "3000") ? "http://localhost:3000" : "";
+const API = { availability: `${API_ORIGIN}/api/availability`, bookings: `${API_ORIGIN}/api/bookings` };
 
 // Zimmer-Kennung aus der Datenbank -> Übersetzungsschlüssel für den Namen
 const ROOM_NAME_KEYS = { garden: "rooms.r1", sea: "rooms.r2", suite: "rooms.r3" };
@@ -68,6 +73,13 @@ export function initBooking() {
 
   /* ---------- Schritt 1: Eingaben ---------- */
   const today = todayInAthens();
+  function updateDateLanguage() {
+    const language = getLanguage();
+    [searchForm.elements.checkIn, searchForm.elements.checkOut].forEach((input) => {
+      input.lang = language;
+    });
+  }
+  updateDateLanguage();
   searchForm.elements.checkIn.min = today;
   searchForm.elements.checkOut.min = addDays(today, 1);
 
@@ -311,6 +323,7 @@ export function initBooking() {
 
   // Beim Sprachwechsel dynamische Inhalte neu schreiben (Datum, Währung, Texte)
   document.addEventListener("languagechange", () => {
+    updateDateLanguage();
     if (state.rooms.length && state.search) renderResults();
     if (state.selected && state.step === 3) renderSummary($("[data-summary]"));
     if (state.booking && state.step === 4) renderSummary($("[data-done-summary]"));

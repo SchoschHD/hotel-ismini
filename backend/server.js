@@ -14,6 +14,8 @@ const { openDatabase } = require("./database/database");
 const availabilityRoutes = require("./routes/availabilityRoutes");
 const bookingRoutes = require("./routes/bookingRoutes");
 const { apiNotFound, errorHandler } = require("./middleware/errorHandler");
+const { login, logout, requireAdmin, adminPage } = require("./middleware/adminAuth");
+const adminRoutes = require("./routes/adminRoutes");
 
 const SITE_ROOT = path.join(__dirname, "..");
 const PAGES = ["index", "rooms", "experiences", "restaurant", "wellness", "booking", "imprint", "privacy"];
@@ -22,6 +24,8 @@ const PAGES = ["index", "rooms", "experiences", "restaurant", "wellness", "booki
 function createApp(db, { rateLimitMax = 60 } = {}) {
   const app = express();
   app.locals.db = db;
+  app.locals.adminPage = path.join(SITE_ROOT, "admin.html");
+  app.locals.adminLoginPage = path.join(SITE_ROOT, "admin-login.html");
   app.disable("x-powered-by");
   if (process.env.TRUST_PROXY) app.set("trust proxy", Number(process.env.TRUST_PROXY) || process.env.TRUST_PROXY);
 
@@ -46,13 +50,29 @@ function createApp(db, { rateLimitMax = 60 } = {}) {
 
   // API: nur kleine JSON-Anfragen, nichts zwischenspeichern, Schreibzugriffe begrenzen
   app.use("/api", (req, res, next) => { res.set("Cache-Control", "no-store"); next(); });
+  app.use("/api", (req, res, next) => {
+    const origin = req.get("Origin");
+    const isLocalPreview = !origin || origin === "null" || /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin);
+    if (isLocalPreview && origin) {
+      res.set("Access-Control-Allow-Origin", origin === "null" ? "*" : origin);
+      res.set("Vary", "Origin");
+      res.set("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+      res.set("Access-Control-Allow-Headers", "Content-Type");
+    }
+    if (req.method === "OPTIONS" && isLocalPreview) return res.sendStatus(204);
+    next();
+  });
   app.use("/api", express.json({ limit: "20kb" }));
   const writeLimiter = rateLimit({ windowMs: 15 * 60 * 1000, limit: rateLimitMax, standardHeaders: true, legacyHeaders: false, message: { error: "too_many_requests" } });
+  const adminLoginLimiter = rateLimit({ windowMs: 15 * 60 * 1000, limit: Math.min(rateLimitMax, 10), standardHeaders: true, legacyHeaders: false, message: { error: "too_many_requests" } });
   app.use("/api/bookings", writeLimiter);
   app.use("/api/restaurant-requests", writeLimiter);
 
   app.use("/api/availability", availabilityRoutes);
   app.use("/api", bookingRoutes);
+  app.post("/api/admin/login", adminLoginLimiter, login);
+  app.post("/api/admin/logout", requireAdmin, logout);
+  app.use("/api/admin", adminRoutes);
   app.use("/api", apiNotFound);
 
   // Website: nur freigegebene Ordner und Seiten (nie backend/, tests/, .env, *.db)
@@ -65,6 +85,9 @@ function createApp(db, { rateLimitMax = 60 } = {}) {
     }));
   }
   app.get("/", (req, res) => res.sendFile(path.join(SITE_ROOT, "index.html")));
+  app.get("/admin.html", adminPage);
+  app.use("/admin.css", express.static(path.join(SITE_ROOT, "admin.css"), { maxAge: "1h" }));
+  app.use("/admin.js", express.static(path.join(SITE_ROOT, "admin.js"), { maxAge: "1h" }));
   app.get("/:page.html", (req, res, next) => {
     if (!PAGES.includes(req.params.page)) return next();
     res.sendFile(path.join(SITE_ROOT, req.params.page + ".html"), (err) => err && next());
