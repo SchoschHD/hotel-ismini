@@ -1,0 +1,50 @@
+/* ==========================================================
+   responsive.css – Anpassungen für Tablet und Smartphone.
+   Mobile ist neu komponiert, nicht nur verkleinert.
+   ========================================================== */
+
+@media (max-width: 1024px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .welcome, .rooms-preview { grid-template-columns: 1fr; gap: var(--space-5); }
+  .dining__text { grid-column: 1 / 11; padding: var(--space-4); }
+  .dining__image { grid-column: 3 / 13; grid-row: 2; margin-top: -3rem; }
+  .dining { grid-template-rows: auto auto; }
+}
+
+@media (max-width: 900px) {
+  :root { --nav-height: 68px; }
+  .nav-toggle { display: block; }
+
+  /* Mobiles Vollbild-Menü */
+  .nav-links {
+    position: fixed; inset: 0; z-index: -1; flex-direction: column; justify-content: center; gap: var(--space-3);
+    background: var(--deep-aegean); color: var(--soft-ivory);
+    opacity: 0; visibility: hidden; transition: opacity var(--dur) var(--ease), visibility var(--dur);
+  }
+  .nav-links a { font-family: var(--font-heading); font-size: 2rem; font-weight: 400; }
+  .site-nav.menu-open .nav-links { opacity: 1; visibility: visible; }
+  .site-nav.menu-open { color: var(--soft-ivory); background: transparent; box-shadow: none; -webkit-backdrop-filter: none; backdrop-filter: none; }
+  .nav-tools { margin-left: auto; }
+
+  .wellness { grid-template-columns: 1fr; text-align: left; }
+  .wellness__text p { margin-inline: 0; }
+  .wellness .frame:first-child, .wellness .frame:last-child { --ratio: 4 / 3; }
+  .experiences-teaser .grid { grid-template-columns: 1fr; }
+  .experiences-teaser .frame:nth-child(2) { margin-top: 0; }
+  .experiences-teaser .frame { --ratio: 4 / 3; }
+}
+
+@media (max-width: 600px) {
+  .footer-grid { grid-template-columns: 1fr; }
+  .hero__content { padding-bottom: var(--space-6); }
+  .hero__actions .btn { width: 100%; }
+  .brand__name { font-size: 1.35rem; }
+  .welcome__images .frame:first-child { width: 86%; }
+  .dining__text { grid-column: 1 / 13; margin-right: 0; padding: var(--space-3); }
+  .dining__image { grid-column: 1 / 13; margin-top: 0; }
+  .mosaic { grid-template-columns: repeat(2, 1fr); }
+  .mosaic .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 1; }
+  .mosaic .gallery-item:nth-child(3) { grid-row: span 1; }
+  .mosaic .gallery-item:nth-child(5) { grid-column: span 2; }
+  .lightbox__prev, .lightbox__next { top: auto; bottom: var(--space-3); }
+}

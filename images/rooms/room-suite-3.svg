@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 960" width="1200" height="960" role="img" aria-label="Placeholder: Suite terrace">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="0.6" y2="1"><stop offset="0" stop-color="#F3E3C8"/><stop offset="0.55" stop-color="#D8C8AE"/><stop offset="1" stop-color="#8FB3C4"/></linearGradient></defs>
+  <rect width="1200" height="960" fill="url(#g)"/>
+  <text x="50%" y="50%" text-anchor="middle" font-family="Georgia, serif" font-size="44" fill="#ffffff" fill-opacity="0.85">Placeholder: Suite terrace</text>
+</svg>

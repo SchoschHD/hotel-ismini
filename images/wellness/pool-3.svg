@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-label="Placeholder: Poolside loungers">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="0.6" y2="1"><stop offset="0" stop-color="#EDE6D8"/><stop offset="0.55" stop-color="#D8C8AE"/><stop offset="1" stop-color="#B9B2A3"/></linearGradient></defs>
+  <rect width="1200" height="800" fill="url(#g)"/>
+  <text x="50%" y="50%" text-anchor="middle" font-family="Georgia, serif" font-size="36" fill="#ffffff" fill-opacity="0.85">Placeholder: Poolside loungers</text>
+</svg>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rooms & Suites | Hotel Ismini</title>
+  <meta name="description" content="Sample room types at Hotel Ismini. Names, details and prices are placeholders.">
+  <meta name="theme-color" content="#193D52">
+  <link rel="preload" href="assets/fonts/cormorant-garamond-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/rooms.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-title-key="meta.rooms.title" data-desc-key="meta.rooms.desc">
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+  <div class="demo-banner" data-i18n="demo.banner">Sample content: rooms, prices and hotel details are placeholders until confirmed by the hotel.</div>
+
+  <header class="site-nav">
+    <div class="container site-nav__inner">
+      <a class="brand" href="index.html" aria-label="Hotel Ismini">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M8 40V24a16 16 0 0 1 32 0v16"/><path d="M16 40V25a8 8 0 0 1 16 0v15"/><path d="M4 40h40"/><path d="M6 45c4-3 8-3 12 0s8 3 12 0 8-3 12 0"/></svg>
+        <span class="brand__name">Ismini</span>
+      </a>
+      <nav class="nav-links" id="main-nav" data-i18n-attr="aria-label:nav.main" aria-label="Main navigation">
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="rooms.html" aria-current="page" data-i18n="nav.rooms">Rooms &amp; Suites</a>
+        <a href="experiences.html" data-i18n="nav.experiences">Experiences</a>
+        <a href="restaurant.html" data-i18n="nav.restaurant">Restaurant</a>
+        <a href="wellness.html" data-i18n="nav.wellness">Wellness</a>
+        <a href="booking.html" data-i18n="nav.booking">Contact &amp; Booking</a>
+      </nav>
+      <div class="nav-tools">
+        <div class="lang-switch" role="group" data-i18n-attr="aria-label:nav.language" aria-label="Language">
+          <button type="button" data-lang="en" aria-pressed="true">EN</button>
+          <button type="button" data-lang="de" aria-pressed="false">DE</button>
+          <button type="button" data-lang="el" aria-pressed="false">EL</button>
+        </div>
+        <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="main-nav" data-i18n-attr="aria-label:nav.menu" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-head" aria-labelledby="page-title">
+      <div class="container stack">
+        <h1 id="page-title" data-i18n="rooms.page.title">Rooms &amp; Suites</h1>
+        <p class="lead" data-i18n="rooms.page.intro"></p>
+      </div>
+    </section>
+
+    <section class="section room" id="garden" aria-labelledby="room-garden-title">
+      <div class="container room__grid">
+        <div class="frame slider room__gallery" style="--ratio: 5 / 4" data-slider data-autoplay="6000" data-reveal="image" role="group" data-i18n-attr="aria-label:rooms.slides" aria-label="Photos of this room">
+            <div class="slider__slide"><button type="button" class="gallery-item" data-gallery="room-garden"><img src="images/rooms/room-garden-1.svg" width="1200" height="960" loading="lazy" decoding="async" alt="Garden room with stone walls, light oak floor and doors open to the garden"></button></div>
+            <div class="slider__slide"><button type="button" class="gallery-item" data-gallery="room-garden"><img src="images/rooms/room-garden-2.svg" width="1200" height="960" loading="lazy" decoding="async" alt="Bathroom with natural stone and a rain shower"></button></div>
+            <div class="slider__slide"><button type="button" class="gallery-item" data-gallery="room-garden"><img src="images/rooms/room-garden-3.svg" width="1200" height="960" loading="lazy" decoding="async" alt="Small private terrace with two chairs"></button></div>
+        </div>
+        <div class="room__info stack" data-reveal>
+          <p class="demo-tag" data-i18n="rooms.r1.meta">Sample</p>
+          <h2 id="room-garden-title" data-i18n="rooms.r1">garden</h2>
+          <p class="lead" data-i18n="rooms.d1"></p>
+          <h3 class="room__subhead" data-i18n="rooms.features">Details (sample)</h3>
+          <ul class="room__features">
+              <li data-i18n="rooms.f.bed">bed</li>
+              <li data-i18n="rooms.f.bath">bath</li>
+              <li data-i18n="rooms.f.terrace">terrace</li>
+              <li data-i18n="rooms.f.gardenview">gardenview</li>
+          </ul>
+          <p class="muted" data-i18n="rooms.price">Price: to be confirmed</p>
+          <a class="btn btn--primary" href="booking.html?room=garden" data-i18n="rooms.check">Check Availability</a>
+        </div>
+      </div>
+    </section>
+    <section class="section room room--reverse" id="sea" aria-labelledby="room-sea-title">
+      <div class="container room__grid">
+        <div class="frame slider room__gallery" style="--ratio: 5 / 4" data-slider data-autoplay="6000" data-reveal="image" role="group" data-i18n-attr="aria-label:rooms.slides" aria-label="Photos of this room">
+            <div class="slider__slide"><button type="button" class="gallery-item" data-gallery="room-sea"><img src="images/rooms/room-sea-1.svg" width="1200" height="960" loading="lazy" decoding="async" alt="Bright room with a large window and a view of the sea"></button></div>
+            <div class="slider__slide"><button type="button" class="gallery-item" data-gallery="room-sea"><img src="images/rooms/room-sea-2.svg" width="1200" height="960" loading="lazy" decoding="async" alt="Balcony with a small table and the sea in the background"></button></div>
+            <div class="slider__slide"><button type="button" class="gallery-item" data-gallery="room-sea"><img src="images/rooms/room-sea-3.svg" width="1200" height="960" loading="lazy" decoding="async" alt="Bright bathroom with a window to the sea"></button></div>
+        </div>
+        <div class="room__info stack" data-reveal>
+          <p class="demo-tag" data-i18n="rooms.r2.meta">Sample</p>
+          <h2 id="room-sea-title" data-i18n="rooms.r2">sea</h2>
+          <p class="lead" data-i18n="rooms.d2"></p>
+          <h3 class="room__subhead" data-i18n="rooms.features">Details (sample)</h3>
+          <ul class="room__features">
+              <li data-i18n="rooms.f.bed">bed</li>
+              <li data-i18n="rooms.f.bath">bath</li>
+              <li data-i18n="rooms.f.terrace">terrace</li>
+              <li data-i18n="rooms.f.seaview">seaview</li>
+          </ul>
+          <p class="muted" data-i18n="rooms.price">Price: to be confirmed</p>
+          <a class="btn btn--primary" href="booking.html?room=sea" data-i18n="rooms.check">Check Availability</a>
+        </div>
+      </div>
+    </section>
+    <section class="section room" id="suite" aria-labelledby="room-suite-title">
+      <div class="container room__grid">
+        <div class="frame slider room__gallery" style="--ratio: 5 / 4" data-slider data-autoplay="6000" data-reveal="image" role="group" data-i18n-attr="aria-label:rooms.slides" aria-label="Photos of this room">
+            <div class="slider__slide"><button type="button" class="gallery-item" data-gallery="room-suite"><img src="images/rooms/room-suite-1.svg" width="1200" height="960" loading="lazy" decoding="async" alt="Spacious suite with a lounge area and a natural stone wall"></button></div>
+            <div class="slider__slide"><button type="button" class="gallery-item" data-gallery="room-suite"><img src="images/rooms/room-suite-2.svg" width="1200" height="960" loading="lazy" decoding="async" alt="Suite bedroom with white linen and a view of the sea"></button></div>
+            <div class="slider__slide"><button type="button" class="gallery-item" data-gallery="room-suite"><img src="images/rooms/room-suite-3.svg" width="1200" height="960" loading="lazy" decoding="async" alt="Large terrace with lounge furniture above the sea"></button></div>
+        </div>
+        <div class="room__info stack" data-reveal>
+          <p class="demo-tag" data-i18n="rooms.r3.meta">Sample</p>
+          <h2 id="room-suite-title" data-i18n="rooms.r3">suite</h2>
+          <p class="lead" data-i18n="rooms.d3"></p>
+          <h3 class="room__subhead" data-i18n="rooms.features">Details (sample)</h3>
+          <ul class="room__features">
+              <li data-i18n="rooms.f.bed">bed</li>
+              <li data-i18n="rooms.f.lounge">lounge</li>
+              <li data-i18n="rooms.f.sleeping">sleeping</li>
+              <li data-i18n="rooms.f.seaview">seaview</li>
+          </ul>
+          <p class="muted" data-i18n="rooms.price">Price: to be confirmed</p>
+          <a class="btn btn--primary" href="booking.html?room=suite" data-i18n="rooms.check">Check Availability</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h2>Hotel Ismini</h2>
+          <p data-i18n="footer.tagline">A Mediterranean retreat in Greece.</p>
+        </div>
+        <nav aria-label="Footer">
+          <h3 data-i18n="footer.explore">Explore</h3>
+          <ul>
+            <li><a href="rooms.html" data-i18n="nav.rooms">Rooms &amp; Suites</a></li>
+            <li><a href="experiences.html" data-i18n="nav.experiences">Experiences</a></li>
+            <li><a href="restaurant.html" data-i18n="nav.restaurant">Restaurant</a></li>
+            <li><a href="wellness.html" data-i18n="nav.wellness">Wellness</a></li>
+          </ul>
+        </nav>
+        <div>
+          <h3 data-i18n="footer.contact">Contact</h3>
+          <ul>
+            <li data-i18n="footer.address">[Address to be confirmed]</li>
+            <li data-i18n="footer.phone">[Phone to be confirmed]</li>
+            <li data-i18n="footer.email">[Email to be confirmed]</li>
+          </ul>
+        </div>
+        <div>
+          <h3 data-i18n="footer.legal">Legal</h3>
+          <ul>
+            <li><a href="imprint.html" data-i18n="footer.imprint">Imprint</a></li>
+            <li><a href="privacy.html" data-i18n="footer.privacy">Privacy policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-i18n="footer.rights">© Hotel Ismini. Demo version.</span>
+        <!-- Cookie-Einstellungen: Button folgt mit cookie-consent.js in Phase 9 -->
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

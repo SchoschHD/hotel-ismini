@@ -1,0 +1,22 @@
+/* ==========================================================
+   rooms.css – Zimmerseite (rooms.html)
+   Zimmer wechseln Bild links/rechts. Slider nutzt components.css.
+   ========================================================== */
+.room { padding-block: var(--space-6); }
+.room:nth-of-type(odd) { background: var(--surface); }
+.room__grid { display: grid; grid-template-columns: 1.25fr 1fr; gap: var(--space-8); align-items: center; }
+.room--reverse .room__gallery { order: 2; }
+.room__gallery .gallery-item { height: 100%; }
+.room__gallery .gallery-item img { height: 100%; }
+.room__subhead { font-family: var(--font-body); font-size: var(--fs-sm); font-weight: 600; margin-top: var(--space-4) !important; }
+.room__features { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem var(--space-3); margin-top: var(--space-1); }
+.room__features li { position: relative; padding-left: 1.1rem; font-size: var(--fs-sm); }
+.room__features li::before { content: ""; position: absolute; left: 0; top: .75em; width: .5rem; height: 1px; background: var(--wood); }
+.room .btn { margin-top: var(--space-2); }
+.room { scroll-margin-top: var(--nav-height); }
+
+@media (max-width: 1024px) {
+  .room__grid { grid-template-columns: 1fr; gap: var(--space-4); }
+  .room--reverse .room__gallery { order: 0; }
+}
+@media (max-width: 600px) { .room__features { grid-template-columns: 1fr; } }

@@ -1,0 +1,133 @@
+/* ==========================================================
+   components.css – Navigation, Buttons, Sprachumschalter,
+   Galerie, Lightbox. Wird auf allen Seiten geladen.
+   ========================================================== */
+
+/* ---------- Navigation ---------- */
+.site-nav {
+  position: fixed; inset: 0 0 auto 0; z-index: var(--z-nav); height: var(--nav-height);
+  display: flex; align-items: center; color: #fff;
+  transition: background var(--dur) var(--ease), color var(--dur) var(--ease), box-shadow var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+.site-nav__inner { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); }
+/* Nach dem Scrollen: heller Hintergrund */
+.site-nav.is-solid {
+  background: color-mix(in srgb, var(--bg) 94%, transparent);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  color: var(--text); box-shadow: 0 1px 0 var(--line);
+}
+/* Unterseiten ohne Hero starten direkt solide */
+.site-nav.is-static { background: var(--bg); color: var(--text); box-shadow: 0 1px 0 var(--line); }
+
+.brand { display: inline-flex; align-items: center; gap: 0.7rem; text-decoration: none; }
+.brand svg { width: 34px; height: 34px; }
+.brand__name { font-family: var(--font-heading); font-size: 1.6rem; font-weight: 500; letter-spacing: 0.02em; line-height: 1; }
+
+.nav-links { display: flex; align-items: center; gap: clamp(1rem, 2vw, 2rem); }
+.nav-links a { text-decoration: none; font-size: var(--fs-sm); font-weight: 500; position: relative; padding-block: 0.4rem; }
+.nav-links a::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: currentColor;
+  transform: scaleX(0); transform-origin: left; transition: transform var(--dur) var(--ease);
+}
+.nav-links a:hover::after, .nav-links a[aria-current="page"]::after { transform: scaleX(1); }
+
+.nav-tools { display: flex; align-items: center; gap: var(--space-3); }
+
+/* Sprachumschalter EN | DE | EL */
+.lang-switch { display: flex; align-items: center; font-size: var(--fs-xs); font-weight: 600; }
+.lang-switch button {
+  background: none; border: 0; cursor: pointer; padding: 0.4rem 0.45rem; opacity: .7; letter-spacing: 0.04em;
+  transition: opacity var(--dur-fast) var(--ease);
+}
+.lang-switch button + button { border-left: 1px solid currentColor; }
+.lang-switch button:hover { opacity: 1; }
+.lang-switch button[aria-pressed="true"] { opacity: 1; text-decoration: underline; text-underline-offset: 0.35em; }
+
+/* Hamburger-Button (nur mobil sichtbar) */
+.nav-toggle { display: none; background: none; border: 0; width: 44px; height: 44px; cursor: pointer; position: relative; }
+.nav-toggle span { position: absolute; left: 10px; right: 10px; height: 2px; background: currentColor; transition: transform var(--dur) var(--ease), opacity var(--dur-fast); }
+.nav-toggle span:nth-child(1) { top: 15px; }
+.nav-toggle span:nth-child(2) { top: 21px; }
+.nav-toggle span:nth-child(3) { top: 27px; }
+.nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
+  min-height: 48px; padding: 0.8rem 1.8rem; border: 1px solid transparent; border-radius: var(--radius);
+  font-size: var(--fs-sm); font-weight: 500; letter-spacing: 0.02em; text-decoration: none; cursor: pointer;
+  transition: background var(--dur) var(--ease), color var(--dur) var(--ease), border-color var(--dur) var(--ease), transform var(--dur-fast) var(--ease);
+}
+.btn:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(0) scale(0.98); }
+.btn--primary { background: var(--accent); color: var(--accent-contrast); }
+.btn--primary:hover { background: color-mix(in srgb, var(--accent) 82%, #fff); }
+.btn--ghost { background: transparent; border-color: currentColor; }
+.btn--ghost:hover { background: rgba(255,255,255,.14); }
+.btn--light { background: var(--soft-ivory); color: var(--deep-aegean); }
+.btn--light:hover { background: #fff; }
+.btn[disabled] { opacity: .55; cursor: not-allowed; transform: none; }
+
+.link-arrow { display: inline-flex; gap: .5rem; font-weight: 500; text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
+.link-arrow:hover { gap: .8rem; }
+.link-arrow { transition: gap var(--dur) var(--ease); }
+
+/* ---------- Crossfade-Slider ---------- */
+.slider { position: relative; }
+.slider__slide { position: absolute; inset: 0; opacity: 0; transition: opacity var(--dur-slow) var(--ease); }
+.slider__slide.is-active { opacity: 1; z-index: 1; }
+.slider__slide img { width: 100%; height: 100%; object-fit: cover; }
+.slider__controls { position: absolute; inset: auto var(--space-2) var(--space-2) auto; z-index: 2; display: flex; gap: .5rem; }
+.slider__btn {
+  width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255,255,255,.7); background: rgba(14,36,50,.35);
+  color: #fff; cursor: pointer; display: grid; place-items: center; transition: background var(--dur-fast);
+}
+.slider__btn:hover { background: rgba(14,36,50,.7); }
+.slider__dots { position: absolute; left: var(--space-2); bottom: var(--space-2); z-index: 2; display: flex; gap: .5rem; }
+.slider__dot { width: 10px; height: 10px; border-radius: 50%; border: 1px solid #fff; background: transparent; padding: 0; cursor: pointer; }
+.slider__dot[aria-current="true"] { background: #fff; }
+
+/* ---------- Galerie und Lightbox ---------- */
+.gallery-item { display: block; width: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; overflow: hidden; }
+.gallery-item img { transition: transform var(--dur-slow) var(--ease); }
+.gallery-item:hover img { transform: scale(1.05); }
+
+.lightbox {
+  position: fixed; inset: 0; z-index: var(--z-overlay); display: none; place-items: center;
+  background: rgba(10, 22, 30, .94); padding: var(--space-4);
+}
+.lightbox.is-open { display: grid; }
+.lightbox figure { max-width: min(1200px, 100%); }
+.lightbox img { max-height: 78vh; width: auto; margin-inline: auto; }
+.lightbox figcaption { color: #fff; text-align: center; margin: var(--space-2) auto 0; font-size: var(--fs-sm); }
+.lightbox__btn {
+  position: absolute; width: 48px; height: 48px; border-radius: 50%; border: 1px solid rgba(255,255,255,.6);
+  background: transparent; color: #fff; cursor: pointer; font-size: 1.4rem;
+}
+.lightbox__btn:hover { background: rgba(255,255,255,.15); }
+.lightbox__close { top: var(--space-3); right: var(--space-3); }
+.lightbox__prev { left: var(--space-3); top: 50%; }
+.lightbox__next { right: var(--space-3); top: 50%; }
+
+/* ---------- Formulare (auch in booking.css genutzt) ---------- */
+.field { display: grid; gap: .4rem; }
+.field label { font-size: var(--fs-sm); font-weight: 500; }
+.field input, .field select, .field textarea {
+  width: 100%; min-height: 48px; padding: .7rem .9rem; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+}
+.field input:focus, .field select:focus, .field textarea:focus { border-color: var(--accent); }
+.field .error { color: #A12B2B; font-size: var(--fs-xs); min-height: 1em; }
+[data-theme="sunset"] .field .error { color: #FFB4A8; }
+
+/* Formular-Raster und Statusmeldung (Restaurant und Buchung) */
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); }
+.form-grid .field--full { grid-column: 1 / -1; }
+.field input[aria-invalid="true"], .field select[aria-invalid="true"] { border-color: #A12B2B; }
+.form-status { min-height: 1.6em; margin-top: var(--space-2); font-size: var(--fs-sm); }
+.form-status.is-error { color: #A12B2B; }
+.form-status.is-ok { color: #2F6B3F; font-weight: 500; }
+[data-theme="sunset"] .form-status.is-error, .section--sunset .form-status.is-error { color: #FFB4A8; }
+[data-theme="sunset"] .form-status.is-ok, .section--sunset .form-status.is-ok { color: #A8E0B5; }
+@media (max-width: 600px) { .form-grid { grid-template-columns: 1fr; } }

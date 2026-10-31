@@ -1,0 +1,36 @@
+/* ==========================================================
+   restaurant.css – Seite Restaurant (heller Start, dunkle Menü-Sektion)
+   Tabs-Logik: js/tabs.js. Formular: js/reservation.js
+   ========================================================== */
+.rest-intro { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-8); align-items: center; }
+
+/* Speisekarte als dunkle Sunset-Sektion */
+.menu__tabs { display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-4); border-bottom: 1px solid var(--line); margin-block: var(--space-4); }
+.menu__tab { background: none; border: 0; border-bottom: 2px solid transparent; padding: .8rem 0; cursor: pointer; font-family: var(--font-heading); font-size: var(--fs-h3); color: var(--text-muted); transition: color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease); }
+.menu__tab:hover { color: var(--text); }
+.menu__tab[aria-selected="true"] { color: var(--text); border-bottom-color: var(--accent); }
+.menu__list { display: grid; gap: var(--space-4); max-width: 46rem; }
+.menu__item { display: grid; grid-template-columns: 1fr auto; gap: .3rem var(--space-3); padding-bottom: var(--space-3); border-bottom: 1px dotted var(--line); }
+.menu__item h3 { font-size: var(--fs-lg); }
+.menu__item p { grid-column: 1; color: var(--text-muted); font-size: var(--fs-sm); }
+.menu__item .menu__price { grid-column: 2; grid-row: 1; font-size: var(--fs-xs); color: var(--accent); align-self: center; }
+.menu__panel[hidden] { display: none; }
+
+/* Galerie */
+.rest-gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-1); }
+.rest-gallery .gallery-item { aspect-ratio: 4 / 3; }
+.rest-gallery .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+.rest-gallery .gallery-item:nth-child(even) { transform: translateY(var(--space-4)); }
+.rest-gallery-wrap { padding-bottom: var(--space-4); }
+
+/* Reservierung */
+.reserve { display: grid; grid-template-columns: .8fr 1.2fr; gap: var(--space-8); align-items: start; }
+.reserve form { background: var(--surface); padding: var(--space-5); box-shadow: var(--shadow); }
+.reserve .btn { margin-top: var(--space-3); }
+
+@media (max-width: 1024px) {
+  .rest-intro, .reserve { grid-template-columns: 1fr; gap: var(--space-5); }
+  .rest-gallery { grid-template-columns: repeat(2, 1fr); }
+  .rest-gallery .gallery-item:nth-child(even) { transform: none; }
+}
+@media (max-width: 600px) { .reserve form { padding: var(--space-3); } .menu__tab { font-size: 1.3rem; } }

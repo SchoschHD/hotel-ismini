@@ -1,0 +1,135 @@
+/* ==========================================================
+   tokens.css – Designsystem von Hotel Ismini
+   Alle Farben, Schriften und Abstände stehen nur hier.
+   Die Seite experiences.html schaltet mit data-theme="sunset"
+   auf die dunkle Abendstimmung um. Alles andere bleibt gleich.
+   ========================================================== */
+
+/* ---------- Schriften (lokal, kein Google-Aufruf) ---------- */
+/* Überschriften: Cormorant Garamond für lateinische Zeichen */
+@font-face { font-family: "Cormorant Garamond"; font-weight: 400; font-style: normal; font-display: swap;
+  src: url("../assets/fonts/cormorant-garamond-latin-400-normal.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122; }
+@font-face { font-family: "Cormorant Garamond"; font-weight: 500; font-style: normal; font-display: swap;
+  src: url("../assets/fonts/cormorant-garamond-latin-500-normal.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122; }
+@font-face { font-family: "Cormorant Garamond"; font-weight: 600; font-style: normal; font-display: swap;
+  src: url("../assets/fonts/cormorant-garamond-latin-600-normal.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122; }
+@font-face { font-family: "Cormorant Garamond"; font-weight: 400; font-style: italic; font-display: swap;
+  src: url("../assets/fonts/cormorant-garamond-latin-400-italic.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122; }
+
+/* Cormorant hat keine griechischen Zeichen. Für Griechisch springt
+   die verwandte EB Garamond unter demselben Namen ein. */
+@font-face { font-family: "Cormorant Garamond"; font-weight: 400; font-style: normal; font-display: swap;
+  src: url("../assets/fonts/eb-garamond-greek-400-normal.woff2") format("woff2");
+  unicode-range: U+0370-03FF, U+1F00-1FFF; }
+@font-face { font-family: "Cormorant Garamond"; font-weight: 500; font-style: normal; font-display: swap;
+  src: url("../assets/fonts/eb-garamond-greek-500-normal.woff2") format("woff2");
+  unicode-range: U+0370-03FF, U+1F00-1FFF; }
+@font-face { font-family: "Cormorant Garamond"; font-weight: 600; font-style: normal; font-display: swap;
+  src: url("../assets/fonts/eb-garamond-greek-500-normal.woff2") format("woff2");
+  unicode-range: U+0370-03FF, U+1F00-1FFF; }
+@font-face { font-family: "Cormorant Garamond"; font-weight: 400; font-style: italic; font-display: swap;
+  src: url("../assets/fonts/eb-garamond-greek-400-italic.woff2") format("woff2");
+  unicode-range: U+0370-03FF, U+1F00-1FFF; }
+
+/* Fließtext und Navigation: Inter (Latin und Griechisch) */
+@font-face { font-family: "Inter"; font-weight: 400; font-display: swap;
+  src: url("../assets/fonts/inter-latin-400-normal.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122; }
+@font-face { font-family: "Inter"; font-weight: 500; font-display: swap;
+  src: url("../assets/fonts/inter-latin-500-normal.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122; }
+@font-face { font-family: "Inter"; font-weight: 600; font-display: swap;
+  src: url("../assets/fonts/inter-latin-600-normal.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122; }
+@font-face { font-family: "Inter"; font-weight: 400; font-display: swap;
+  src: url("../assets/fonts/inter-greek-400-normal.woff2") format("woff2");
+  unicode-range: U+0370-03FF, U+1F00-1FFF; }
+@font-face { font-family: "Inter"; font-weight: 500; font-display: swap;
+  src: url("../assets/fonts/inter-greek-500-normal.woff2") format("woff2");
+  unicode-range: U+0370-03FF, U+1F00-1FFF; }
+@font-face { font-family: "Inter"; font-weight: 600; font-display: swap;
+  src: url("../assets/fonts/inter-greek-600-normal.woff2") format("woff2");
+  unicode-range: U+0370-03FF, U+1F00-1FFF; }
+
+/* ---------- Design A: Mediterranean Afternoon (Standard) ---------- */
+:root {
+  /* Markenfarben aus dem Briefing */
+  --soft-ivory: #F3F0EA;
+  --deep-aegean: #193D52;
+  --sand-beige: #D8C8AE;
+  --white: #FFFFFF;
+  --warm-wood: #8A6851;
+
+  /* Rollen: Diese Variablen werden im Code benutzt */
+  --bg: var(--soft-ivory);
+  --surface: var(--white);
+  --surface-alt: var(--sand-beige);
+  --text: var(--deep-aegean);
+  --text-muted: #4C6676;          /* Kontrast auf Ivory ca. 5,3:1 */
+  --accent: var(--deep-aegean);
+  --accent-contrast: var(--soft-ivory);
+  --detail: var(--sand-beige);
+  --wood: var(--warm-wood);
+  --line: rgba(25, 61, 82, 0.16);
+  --focus: #B5651D;
+  --shadow: 0 18px 40px -22px rgba(25, 61, 82, 0.35);
+
+  /* Schriften */
+  --font-heading: "Cormorant Garamond", "EB Garamond", Georgia, "Times New Roman", serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+
+  /* Fluide Schriftgrößen */
+  --fs-xs: 0.8125rem;
+  --fs-sm: 0.9375rem;
+  --fs-base: clamp(1rem, 0.96rem + 0.2vw, 1.0625rem);
+  --fs-lg: clamp(1.15rem, 1.05rem + 0.5vw, 1.35rem);
+  --fs-h3: clamp(1.5rem, 1.3rem + 1vw, 2rem);
+  --fs-h2: clamp(2.1rem, 1.6rem + 2.4vw, 3.5rem);
+  --fs-h1: clamp(2.9rem, 1.8rem + 5.4vw, 6rem);
+
+  /* 8-px-Raster */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 3rem;
+  --space-6: 4rem;
+  --space-8: 6rem;
+  --space-10: 8rem;
+  --section-space: clamp(4rem, 3rem + 6vw, 9rem);
+  --container: 1240px;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+
+  /* Form und Bewegung */
+  --radius: 2px;
+  --radius-round: 999px;
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --dur-fast: 220ms;
+  --dur: 500ms;
+  --dur-slow: 900ms;
+
+  --nav-height: 76px;
+  --z-nav: 100;
+  --z-overlay: 200;
+}
+
+/* ---------- Design B: Mediterranean Sunset ----------
+   Die HEX-Werte für Walnuss und Amber sind Vorschläge,
+   im Briefing gab es dafür keine festen Werte. */
+[data-theme="sunset"] {
+  --bg: #1E1612;                   /* dunkles Walnussholz */
+  --surface: #10222E;              /* abgedunkeltes Deep Aegean */
+  --surface-alt: #2A1D16;
+  --text: #F3F0EA;
+  --text-muted: #C9BFB0;           /* Kontrast auf Walnuss ca. 9:1 */
+  --accent: #D9A25B;               /* Amber */
+  --accent-contrast: #1E1612;
+  --detail: #D9A25B;
+  --line: rgba(243, 240, 234, 0.18);
+  --focus: #F2C27E;
+  --shadow: 0 24px 50px -24px rgba(0, 0, 0, 0.7);
+}

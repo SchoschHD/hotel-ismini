@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="1000" height="1000" role="img" aria-label="Placeholder: Pool in the afternoon">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="0.6" y2="1"><stop offset="0" stop-color="#EDE6D8"/><stop offset="0.55" stop-color="#D8C8AE"/><stop offset="1" stop-color="#B9B2A3"/></linearGradient></defs>
+  <rect width="1000" height="1000" fill="url(#g)"/>
+  <text x="50%" y="50%" text-anchor="middle" font-family="Georgia, serif" font-size="45" fill="#ffffff" fill-opacity="0.85">Placeholder: Pool in the afternoon</text>
+</svg>

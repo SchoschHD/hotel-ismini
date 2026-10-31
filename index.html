@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hotel Ismini | Where the Aegean meets serenity</title>
+  <meta name="description" content="Hotel Ismini, a Mediterranean retreat in Greece. Sample website content.">
+  <meta name="theme-color" content="#193D52">
+  <link rel="preload" href="assets/fonts/cormorant-garamond-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="images/hero/hero-home.svg" as="image" fetchpriority="high">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-title-key="meta.home.title" data-desc-key="meta.home.desc">
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+  <div class="demo-banner" data-i18n="demo.banner">Sample content: rooms, prices and hotel details are placeholders until confirmed by the hotel.</div>
+
+  <header class="site-nav">
+    <div class="container site-nav__inner">
+      <a class="brand" href="index.html" aria-label="Hotel Ismini">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M8 40V24a16 16 0 0 1 32 0v16"/><path d="M16 40V25a8 8 0 0 1 16 0v15"/><path d="M4 40h40"/><path d="M6 45c4-3 8-3 12 0s8 3 12 0 8-3 12 0"/></svg>
+        <span class="brand__name">Ismini</span>
+      </a>
+      <nav class="nav-links" id="main-nav" data-i18n-attr="aria-label:nav.main" aria-label="Main navigation">
+        <a href="index.html" aria-current="page" data-i18n="nav.home">Home</a>
+        <a href="rooms.html" data-i18n="nav.rooms">Rooms &amp; Suites</a>
+        <a href="experiences.html" data-i18n="nav.experiences">Experiences</a>
+        <a href="restaurant.html" data-i18n="nav.restaurant">Restaurant</a>
+        <a href="wellness.html" data-i18n="nav.wellness">Wellness</a>
+        <a href="booking.html" data-i18n="nav.booking">Contact &amp; Booking</a>
+      </nav>
+      <div class="nav-tools">
+        <div class="lang-switch" role="group" data-i18n-attr="aria-label:nav.language" aria-label="Language">
+          <button type="button" data-lang="en" aria-pressed="true">EN</button>
+          <button type="button" data-lang="de" aria-pressed="false">DE</button>
+          <button type="button" data-lang="el" aria-pressed="false">EL</button>
+        </div>
+        <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="main-nav" data-i18n-attr="aria-label:nav.menu" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__media">
+        <img src="images/hero/hero-home.svg" width="1920" height="1080" alt="" fetchpriority="high" decoding="async">
+      </div>
+      <div class="container hero__content">
+        <h1 id="hero-title" data-i18n="hero.title">Where the Aegean meets serenity.</h1>
+        <p data-i18n="hero.text">Slow mornings, long afternoons and evenings by the water. Stay with us and let the day take its time.</p>
+        <div class="hero__actions">
+          <a class="btn btn--light" href="#welcome" data-i18n="hero.discover">Discover Hotel Ismini</a>
+          <a class="btn btn--ghost" href="booking.html" data-i18n="hero.book">Book Your Stay</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="welcome" aria-labelledby="welcome-title">
+      <div class="container welcome">
+        <div class="stack" data-reveal>
+          <h2 id="welcome-title" data-i18n="welcome.title">Welcome to Hotel Ismini</h2>
+          <p class="lead" data-i18n="welcome.p1">Hotel Ismini sits above the sea, built from local stone and pale wood. Every room opens to the light.</p>
+          <p class="muted" data-i18n="welcome.p2">This text is a sample.</p>
+          <a class="link-arrow" href="rooms.html" data-i18n="welcome.link">Explore the rooms</a>
+        </div>
+        <div class="welcome__images">
+          <div class="frame" data-reveal="image"><img src="images/hero/welcome-1.svg" width="960" height="1200" loading="lazy" decoding="async" alt="Natural stone hotel entrance with a pale wooden door and an olive tree"></div>
+          <div class="frame" data-reveal="image"><img src="images/hero/welcome-2.svg" width="800" height="800" loading="lazy" decoding="async" alt="Linen bedding beside a light wooden bedside table"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--white" aria-labelledby="rooms-title">
+      <div class="container">
+        <div class="stack" data-reveal style="margin-bottom: var(--space-5)">
+          <h2 id="rooms-title" data-i18n="rooms.title">Our Rooms &amp; Suites</h2>
+          <p class="muted" data-i18n="rooms.intro">Three sample room types.</p>
+        </div>
+        <div class="rooms-preview">
+          <div class="frame rooms-preview__main" data-reveal="image"><img src="images/rooms/room-sea-1.svg" width="1200" height="960" loading="lazy" decoding="async" alt="Bright room with a large window and a view of the sea"></div>
+          <ul class="room-list" data-reveal>
+            <li><a href="rooms.html#garden"><h3 data-i18n="rooms.r1">Garden Room</h3><span class="muted demo-tag" data-i18n="rooms.r1.meta">Sample, 2 guests</span></a></li>
+            <li><a href="rooms.html#sea"><h3 data-i18n="rooms.r2">Sea View Room</h3><span class="muted demo-tag" data-i18n="rooms.r2.meta">Sample, 2 guests</span></a></li>
+            <li><a href="rooms.html#suite"><h3 data-i18n="rooms.r3">Aegean Suite</h3><span class="muted demo-tag" data-i18n="rooms.r3.meta">Sample, 4 guests</span></a></li>
+          </ul>
+        </div>
+        <p style="margin-top: var(--space-4)"><a class="link-arrow" href="rooms.html" data-i18n="rooms.all">View all rooms</a></p>
+      </div>
+    </section>
+
+    <section class="band" aria-labelledby="greece-title">
+      <div class="band__media"><img src="images/hero/greece-band.svg" width="1920" height="1080" loading="lazy" decoding="async" alt="Greek coastline with a small white chapel, olive trees and turquoise sea"></div>
+      <div class="container">
+        <div class="stack" data-reveal>
+          <h2 id="greece-title" data-i18n="greece.title">The beauty of Greece</h2>
+          <p class="lead" data-i18n="greece.text">White chapels, olive groves and a sea that changes colour every hour.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section experiences-teaser" aria-labelledby="exp-title">
+      <div class="container">
+        <div class="stack" data-reveal>
+          <h2 id="exp-title" data-i18n="exp.title">Experiences after dusk</h2>
+          <p class="lead" data-i18n="exp.intro">When the light turns amber, the evening begins.</p>
+        </div>
+        <div class="grid">
+          <figure data-reveal><div class="frame"><img src="images/experiences/sunset-dining.svg" width="900" height="1200" loading="lazy" decoding="async" alt="Terrace tables with candles at sunset"></div><figcaption data-i18n="exp.e1">Sunset dining</figcaption></figure>
+          <figure data-reveal data-reveal-delay="1"><div class="frame"><img src="images/experiences/evening-lounge.svg" width="900" height="1200" loading="lazy" decoding="async" alt="Dark wood lounge with warm amber lamps"></div><figcaption data-i18n="exp.e2">Evening lounge</figcaption></figure>
+          <figure data-reveal data-reveal-delay="2"><div class="frame"><img src="images/experiences/private-moments.svg" width="900" height="1200" loading="lazy" decoding="async" alt="Candlelit table for two above the sea"></div><figcaption data-i18n="exp.e3">Private moments</figcaption></figure>
+        </div>
+        <p style="margin-top: var(--space-5)"><a class="link-arrow" href="experiences.html" data-i18n="exp.cta">See all experiences</a></p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="dining-title">
+      <div class="container dining">
+        <div class="dining__text stack" data-reveal>
+          <h2 id="dining-title" data-i18n="dining.title">Dining &amp; Restaurant</h2>
+          <p data-i18n="dining.text">Mediterranean cooking with the sea in view.</p>
+          <a class="link-arrow" href="restaurant.html" data-i18n="dining.cta">View the restaurant</a>
+        </div>
+        <div class="frame dining__image" data-reveal="image"><img src="images/restaurant/dining-terrace.svg" width="1200" height="900" loading="lazy" decoding="async" alt="Restaurant terrace with light wooden tables, olive trees and a view of the sea"></div>
+      </div>
+    </section>
+
+    <section class="section section--sand" aria-labelledby="wellness-title">
+      <div class="container wellness">
+        <div class="frame" data-reveal="image"><img src="images/wellness/spa-1.svg" width="800" height="1333" loading="lazy" decoding="async" alt="Spa relaxation area with natural stone walls and soft towels"></div>
+        <div class="wellness__text stack" data-reveal>
+          <h2 id="wellness-title" data-i18n="wellness.title">Wellness &amp; Relaxation</h2>
+          <p data-i18n="wellness.text">Stone, water and quiet.</p>
+          <a class="link-arrow" href="wellness.html" data-i18n="wellness.cta">Discover wellness</a>
+        </div>
+        <div class="frame" data-reveal="image"><img src="images/wellness/pool-1.svg" width="1000" height="1000" loading="lazy" decoding="async" alt="Infinity pool with sun loungers and a view of the sea"></div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="gallery-title">
+      <div class="container">
+        <h2 id="gallery-title" data-i18n="gallery.title" data-reveal style="margin-bottom: var(--space-5)">Gallery</h2>
+        <div class="mosaic">
+          <button type="button" class="gallery-item" data-gallery="home"><img src="images/gallery/gallery-1.svg" width="1200" height="1200" loading="lazy" decoding="async" alt="Hotel terrace at golden hour with a view of the sea"></button>
+          <button type="button" class="gallery-item" data-gallery="home"><img src="images/gallery/gallery-2.svg" width="900" height="600" loading="lazy" decoding="async" alt="Breakfast table with fruit, yoghurt and honey"></button>
+          <button type="button" class="gallery-item" data-gallery="home"><img src="images/gallery/gallery-3.svg" width="900" height="600" loading="lazy" decoding="async" alt="Whitewashed courtyard with an olive tree"></button>
+          <button type="button" class="gallery-item" data-gallery="home"><img src="images/gallery/gallery-4.svg" width="600" height="1200" loading="lazy" decoding="async" alt="Narrow whitewashed stairway with a blue door"></button>
+          <button type="button" class="gallery-item" data-gallery="home"><img src="images/gallery/gallery-5.svg" width="1200" height="600" loading="lazy" decoding="async" alt="The sea at sunset seen from a balcony"></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cta" aria-labelledby="cta-title">
+      <div class="container stack" data-reveal>
+        <h2 id="cta-title" data-i18n="cta.title">Plan your stay</h2>
+        <p data-i18n="cta.text">Choose your dates and see which rooms are available.</p>
+        <div class="hero__actions"><a class="btn btn--light" href="booking.html" data-i18n="cta.button">Check availability</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h2>Hotel Ismini</h2>
+          <p data-i18n="footer.tagline">A Mediterranean retreat in Greece.</p>
+        </div>
+        <nav aria-label="Footer">
+          <h3 data-i18n="footer.explore">Explore</h3>
+          <ul>
+            <li><a href="rooms.html" data-i18n="nav.rooms">Rooms &amp; Suites</a></li>
+            <li><a href="experiences.html" data-i18n="nav.experiences">Experiences</a></li>
+            <li><a href="restaurant.html" data-i18n="nav.restaurant">Restaurant</a></li>
+            <li><a href="wellness.html" data-i18n="nav.wellness">Wellness</a></li>
+          </ul>
+        </nav>
+        <div>
+          <h3 data-i18n="footer.contact">Contact</h3>
+          <ul>
+            <li data-i18n="footer.address">[Address to be confirmed]</li>
+            <li data-i18n="footer.phone">[Phone to be confirmed]</li>
+            <li data-i18n="footer.email">[Email to be confirmed]</li>
+          </ul>
+        </div>
+        <div>
+          <h3 data-i18n="footer.legal">Legal</h3>
+          <ul>
+            <li><a href="imprint.html" data-i18n="footer.imprint">Imprint</a></li>
+            <li><a href="privacy.html" data-i18n="footer.privacy">Privacy policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-i18n="footer.rights">© Hotel Ismini. Demo version.</span>
+        <!-- Cookie-Einstellungen: Button folgt mit cookie-consent.js in Phase 9 -->
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

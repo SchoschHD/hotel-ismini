@@ -1,0 +1,30 @@
+/* ==========================================================
+   wellness.css – Seite Wellness (heller Stil, Naturstein)
+   Nutzt .hero und .hero--medium aus style.css / experiences.css.
+   ========================================================== */
+.well-hero::after { background: linear-gradient(180deg, rgba(60,52,40,.35) 0%, rgba(60,52,40,.05) 40%, rgba(40,48,52,.7) 100%); }
+
+/* Spa: großes Bild links, Textblock überlappt */
+.well-spa { display: grid; grid-template-columns: repeat(12, 1fr); align-items: center; }
+.well-spa__img { grid-column: 1 / 8; grid-row: 1; }
+.well-spa__text { grid-column: 7 / 13; grid-row: 1; z-index: 1; background: var(--surface); padding: var(--space-6); box-shadow: var(--shadow); }
+
+/* Pool: Sand-Fläche, Slider rechts breit */
+.well-pool { display: grid; grid-template-columns: .8fr 1.2fr; gap: var(--space-8); align-items: center; }
+
+/* Relaxation: schmales Hochbild und mittiger Text */
+.well-relax { display: grid; grid-template-columns: .7fr 1fr; gap: var(--space-8); align-items: end; }
+
+/* Angebote als ruhige Liste */
+.well-offers { max-width: 52rem; }
+.well-offers li { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-3); padding: var(--space-3) 0; border-top: 1px solid var(--line); }
+.well-offers li:last-child { border-bottom: 1px solid var(--line); }
+.well-offers h3 { font-size: var(--fs-h3); }
+
+@media (max-width: 1024px) {
+  .well-spa { grid-template-columns: 1fr; }
+  .well-spa__img, .well-spa__text { grid-column: 1; grid-row: auto; }
+  .well-spa__text { margin: -3rem var(--space-2) 0; padding: var(--space-4); }
+  .well-pool, .well-relax { grid-template-columns: 1fr; gap: var(--space-4); }
+}
+@media (max-width: 600px) { .well-offers li { flex-direction: column; gap: .5rem; } }

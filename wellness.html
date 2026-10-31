@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wellness | Hotel Ismini</title>
+  <meta name="description" content="Sample wellness area at Hotel Ismini: spa, pool and relaxation.">
+  <meta name="theme-color" content="#193D52">
+  <link rel="preload" href="assets/fonts/cormorant-garamond-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="images/wellness/wellness-hero.svg" as="image" fetchpriority="high">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/experiences.css">
+  <link rel="stylesheet" href="css/wellness.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-title-key="meta.well.title" data-desc-key="meta.well.desc">
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+  <div class="demo-banner" data-i18n="demo.banner">Sample content: rooms, prices and hotel details are placeholders until confirmed by the hotel.</div>
+
+  <header class="site-nav">
+    <div class="container site-nav__inner">
+      <a class="brand" href="index.html" aria-label="Hotel Ismini">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M8 40V24a16 16 0 0 1 32 0v16"/><path d="M16 40V25a8 8 0 0 1 16 0v15"/><path d="M4 40h40"/><path d="M6 45c4-3 8-3 12 0s8 3 12 0 8-3 12 0"/></svg>
+        <span class="brand__name">Ismini</span>
+      </a>
+      <nav class="nav-links" id="main-nav" data-i18n-attr="aria-label:nav.main" aria-label="Main navigation">
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="rooms.html" data-i18n="nav.rooms">Rooms &amp; Suites</a>
+        <a href="experiences.html" data-i18n="nav.experiences">Experiences</a>
+        <a href="restaurant.html" data-i18n="nav.restaurant">Restaurant</a>
+        <a href="wellness.html" aria-current="page" data-i18n="nav.wellness">Wellness</a>
+        <a href="booking.html" data-i18n="nav.booking">Contact &amp; Booking</a>
+      </nav>
+      <div class="nav-tools">
+        <div class="lang-switch" role="group" data-i18n-attr="aria-label:nav.language" aria-label="Language">
+          <button type="button" data-lang="en" aria-pressed="true">EN</button>
+          <button type="button" data-lang="de" aria-pressed="false">DE</button>
+          <button type="button" data-lang="el" aria-pressed="false">EL</button>
+        </div>
+        <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="main-nav" data-i18n-attr="aria-label:nav.menu" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero hero--medium well-hero" aria-labelledby="page-title">
+      <div class="hero__media"><img src="images/wellness/wellness-hero.svg" width="1920" height="1080" fetchpriority="high" decoding="async" alt=""></div>
+      <div class="container hero__content">
+        <h1 id="page-title" data-i18n="well.page.title">Stone, water and quiet</h1>
+        <p data-i18n="well.page.intro"></p>
+        <p class="demo-tag" data-i18n="well.note">Sample offers</p>
+      </div>
+    </section>
+
+    <section class="section" id="spa" aria-labelledby="spa-title">
+      <div class="container well-spa">
+        <div class="frame well-spa__img" style="--ratio: 4 / 3" data-reveal="image"><img src="images/wellness/spa-2.svg" width="1200" height="900" loading="lazy" decoding="async" alt="Quiet treatment room with a massage table and a natural stone wall"></div>
+        <div class="well-spa__text stack" data-reveal><h2 id="spa-title" data-i18n="well.spa.title">Spa</h2><p data-i18n="well.spa.text"></p></div>
+      </div>
+    </section>
+
+    <section class="section section--sand" id="pool" aria-labelledby="pool-title">
+      <div class="container well-pool">
+        <div class="stack" data-reveal><h2 id="pool-title" data-i18n="well.pool.title">Pool</h2><p class="lead" data-i18n="well.pool.text"></p></div>
+        <div class="frame slider" style="--ratio: 3 / 2" data-slider data-autoplay="6500" data-reveal="image" role="group" data-i18n-attr="aria-label:well.pool.slides" aria-label="Photos of the pool">
+          <div class="slider__slide"><button type="button" class="gallery-item" data-gallery="pool"><img src="images/wellness/pool-2.svg" width="1200" height="800" loading="lazy" decoding="async" alt="Pool terrace with a view of the sea in the late afternoon"></button></div>
+          <div class="slider__slide"><button type="button" class="gallery-item" data-gallery="pool"><img src="images/wellness/pool-3.svg" width="1200" height="800" loading="lazy" decoding="async" alt="Poolside sun loungers with white towels and olive trees"></button></div>
+          <div class="slider__slide"><button type="button" class="gallery-item" data-gallery="pool"><img src="images/wellness/pool-1.svg" width="1000" height="1000" loading="lazy" decoding="async" alt="Infinity pool with sun loungers and a view of the sea"></button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="relaxation" aria-labelledby="relax-title">
+      <div class="container well-relax">
+        <div class="frame" style="--ratio: 4 / 5" data-reveal="image"><img src="images/wellness/relax-1.svg" width="1000" height="1250" loading="lazy" decoding="async" alt="Relaxation room with daybeds and linen curtains"></div>
+        <div class="stack" data-reveal><h2 id="relax-title" data-i18n="well.relax.title">Relaxation</h2><p class="lead" data-i18n="well.relax.text"></p></div>
+      </div>
+    </section>
+
+    <section class="section section--white" id="offers" aria-labelledby="offers-title">
+      <div class="container">
+        <div class="stack" data-reveal style="margin-bottom: var(--space-5)"><h2 id="offers-title" data-i18n="well.offers.title">Wellness experiences &amp; massages</h2><p class="muted" data-i18n="well.offers.intro"></p></div>
+        <ul class="well-offers" data-reveal>
+          <li><h3 data-i18n="well.o1">o1</h3><span class="demo-tag" data-i18n="well.o.meta">Sample</span></li>
+          <li><h3 data-i18n="well.o2">o2</h3><span class="demo-tag" data-i18n="well.o.meta">Sample</span></li>
+          <li><h3 data-i18n="well.o3">o3</h3><span class="demo-tag" data-i18n="well.o.meta">Sample</span></li>
+          <li><h3 data-i18n="well.o4">o4</h3><span class="demo-tag" data-i18n="well.o.meta">Sample</span></li>
+        </ul>
+        <p style="margin-top: var(--space-5)"><a class="btn btn--primary" href="booking.html" data-i18n="well.cta">Ask about wellness</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h2>Hotel Ismini</h2>
+          <p data-i18n="footer.tagline">A Mediterranean retreat in Greece.</p>
+        </div>
+        <nav aria-label="Footer">
+          <h3 data-i18n="footer.explore">Explore</h3>
+          <ul>
+            <li><a href="rooms.html" data-i18n="nav.rooms">Rooms &amp; Suites</a></li>
+            <li><a href="experiences.html" data-i18n="nav.experiences">Experiences</a></li>
+            <li><a href="restaurant.html" data-i18n="nav.restaurant">Restaurant</a></li>
+            <li><a href="wellness.html" data-i18n="nav.wellness">Wellness</a></li>
+          </ul>
+        </nav>
+        <div>
+          <h3 data-i18n="footer.contact">Contact</h3>
+          <ul>
+            <li data-i18n="footer.address">[Address to be confirmed]</li>
+            <li data-i18n="footer.phone">[Phone to be confirmed]</li>
+            <li data-i18n="footer.email">[Email to be confirmed]</li>
+          </ul>
+        </div>
+        <div>
+          <h3 data-i18n="footer.legal">Legal</h3>
+          <ul>
+            <li><a href="imprint.html" data-i18n="footer.imprint">Imprint</a></li>
+            <li><a href="privacy.html" data-i18n="footer.privacy">Privacy policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-i18n="footer.rights">© Hotel Ismini. Demo version.</span>
+        <!-- Cookie-Einstellungen: Button folgt mit cookie-consent.js in Phase 9 -->
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

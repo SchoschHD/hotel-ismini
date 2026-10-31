@@ -1,0 +1,44 @@
+/* ==========================================================
+   animations.css – Bewegung. Alles nur CSS, gesteuert über
+   Klassen, die animations.js setzt. Bei prefers-reduced-motion
+   werden Zoom und Slides abgeschaltet.
+   ========================================================== */
+
+/* Hero: langsamer Zoom, die eine große Bewegung der Startseite */
+@keyframes hero-zoom { from { transform: scale(1); } to { transform: scale(1.09); } }
+.hero__media img { animation: hero-zoom 22s var(--ease) both; }
+
+/* Hero-Text erscheint einmal beim Laden, gestaffelt */
+@keyframes rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+.hero__content > * { animation: rise 1s var(--ease) both; }
+.hero__content > *:nth-child(2) { animation-delay: .15s; }
+.hero__content > *:nth-child(3) { animation-delay: .3s; }
+
+/* Scroll-Reveal: nur dort eingesetzt, wo es Orientierung gibt */
+[data-reveal] { opacity: 0; transform: translateY(22px); transition: opacity var(--dur-slow) var(--ease), transform var(--dur-slow) var(--ease); }
+[data-reveal].is-visible { opacity: 1; transform: none; }
+[data-reveal-delay="1"] { transition-delay: .12s; }
+[data-reveal-delay="2"] { transition-delay: .24s; }
+
+/* Bilder, die beim Erscheinen aufgehen wie ein Vorhang */
+/* Der Vorhang liegt auf dem Bild selbst, damit der Rahmen beobachtbar bleibt */
+[data-reveal="image"] { opacity: 1; transform: none; }
+[data-reveal="image"] img { clip-path: inset(0 0 100% 0); transition: clip-path 1.2s var(--ease); }
+[data-reveal="image"].is-visible img { clip-path: inset(0); }
+
+/* Mobiles Menü */
+.mobile-menu { transition: opacity var(--dur) var(--ease), visibility var(--dur); }
+
+/* Ohne JavaScript bleibt alles sichtbar */
+.no-js [data-reveal] { opacity: 1; transform: none; }
+.no-js [data-reveal="image"] img { clip-path: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hero__media img, .hero__content > * { animation: none; }
+  [data-reveal] { transform: none; transition: opacity .3s linear; }
+  [data-reveal="image"] img { clip-path: none; transition: none; }
+  .btn:hover, .btn:active { transform: none; }
+  .slider__slide { transition-duration: .2s; }
+  .gallery-item:hover img { transform: none; }
+}

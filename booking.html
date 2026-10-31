@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact & Booking | Hotel Ismini</title>
+  <meta name="description" content="Check availability and book a room at Hotel Ismini (demo environment).">
+  <meta name="theme-color" content="#193D52">
+  <link rel="preload" href="assets/fonts/cormorant-garamond-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/booking.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-title-key="meta.book.title" data-desc-key="meta.book.desc">
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+  <div class="demo-banner" data-i18n="demo.banner">Sample content: rooms, prices and hotel details are placeholders until confirmed by the hotel.</div>
+
+  <header class="site-nav">
+    <div class="container site-nav__inner">
+      <a class="brand" href="index.html" aria-label="Hotel Ismini">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M8 40V24a16 16 0 0 1 32 0v16"/><path d="M16 40V25a8 8 0 0 1 16 0v15"/><path d="M4 40h40"/><path d="M6 45c4-3 8-3 12 0s8 3 12 0 8-3 12 0"/></svg>
+        <span class="brand__name">Ismini</span>
+      </a>
+      <nav class="nav-links" id="main-nav" data-i18n-attr="aria-label:nav.main" aria-label="Main navigation">
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="rooms.html" data-i18n="nav.rooms">Rooms &amp; Suites</a>
+        <a href="experiences.html" data-i18n="nav.experiences">Experiences</a>
+        <a href="restaurant.html" data-i18n="nav.restaurant">Restaurant</a>
+        <a href="wellness.html" data-i18n="nav.wellness">Wellness</a>
+        <a href="booking.html" aria-current="page" data-i18n="nav.booking">Contact &amp; Booking</a>
+      </nav>
+      <div class="nav-tools">
+        <div class="lang-switch" role="group" data-i18n-attr="aria-label:nav.language" aria-label="Language">
+          <button type="button" data-lang="en" aria-pressed="true">EN</button>
+          <button type="button" data-lang="de" aria-pressed="false">DE</button>
+          <button type="button" data-lang="el" aria-pressed="false">EL</button>
+        </div>
+        <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="main-nav" data-i18n-attr="aria-label:nav.menu" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-head" aria-labelledby="page-title">
+      <div class="container stack">
+        <h1 id="page-title" data-i18n="book.page.title">Plan your stay</h1>
+        <p class="lead" data-i18n="book.page.intro"></p>
+        <p class="demo-tag" data-i18n="book.demo">Demo environment</p>
+      </div>
+    </section>
+
+    <section class="section booking" id="booking" data-booking aria-label="Booking">
+      <div class="container">
+        <ol class="stepper" data-i18n-attr="aria-label:book.steps" aria-label="Booking steps">
+          <li data-stepper="1"><span class="stepper__num">1</span><span data-i18n="book.step1">Dates & guests</span></li>
+          <li data-stepper="2"><span class="stepper__num">2</span><span data-i18n="book.step2">Choose a room</span></li>
+          <li data-stepper="3"><span class="stepper__num">3</span><span data-i18n="book.step3">Your details</span></li>
+          <li data-stepper="4"><span class="stepper__num">4</span><span data-i18n="book.step4">Confirmation</span></li>
+        </ol>
+
+        <!-- Schritt 1: Daten und Gäste -->
+        <div data-step="1">
+          <form class="booking__form" data-search-form novalidate>
+            <div class="form-grid form-grid--3">
+            <div class="field"><label for="b-checkIn" data-i18n="book.checkin">checkin</label>
+              <input id="b-checkIn" name="checkIn" type="date" ><span class="error" data-error-for="checkIn" role="alert"></span></div>
+            <div class="field"><label for="b-checkOut" data-i18n="book.checkout">checkout</label>
+              <input id="b-checkOut" name="checkOut" type="date" ><span class="error" data-error-for="checkOut" role="alert"></span></div>
+            <div class="field"><label for="b-rooms" data-i18n="book.rooms">rooms</label>
+              <input id="b-rooms" name="rooms" type="number" min="1" max="5" value="1" inputmode="numeric"><span class="error" data-error-for="rooms" role="alert"></span></div>
+            <div class="field"><label for="b-adults" data-i18n="book.adults">adults</label>
+              <input id="b-adults" name="adults" type="number" min="1" max="10" value="2" inputmode="numeric"><span class="error" data-error-for="adults" role="alert"></span></div>
+            <div class="field"><label for="b-children" data-i18n="book.children">children</label>
+              <input id="b-children" name="children" type="number" min="0" max="10" value="0" inputmode="numeric"><span class="error" data-error-for="children" role="alert"></span></div>
+              <div class="field"><label for="b-category" data-i18n="book.category">Room category</label>
+                <select id="b-category" name="category">
+                  <option value="" data-i18n="book.cat.any">Any category</option>
+                  <option value="garden" data-i18n="rooms.r1">Garden Room</option>
+                  <option value="sea" data-i18n="rooms.r2">Sea View Room</option>
+                  <option value="suite" data-i18n="rooms.r3">Aegean Suite</option>
+                </select><span class="error"></span></div>
+            </div>
+            <button class="btn btn--primary" type="submit" data-i18n="book.search">Check availability</button>
+            <p class="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+
+        <!-- Schritt 2: Zimmer wählen -->
+        <div data-step="2" hidden>
+          <div class="booking__bar">
+            <h2 data-i18n="book.results.title">Available rooms</h2>
+            <button type="button" class="link-arrow" data-action="to-step-1" data-i18n="book.change">Change dates</button>
+          </div>
+          <p class="muted" data-results-summary></p>
+          <ul class="results" data-results></ul>
+          <p class="form-status" role="status" aria-live="polite" data-results-status></p>
+        </div>
+
+        <!-- Schritt 3: Angaben und Übersicht -->
+        <div data-step="3" hidden>
+          <div class="booking__bar">
+            <h2 data-i18n="book.details.title">Your details</h2>
+            <button type="button" class="link-arrow" data-action="to-step-2" data-i18n="book.back">Back</button>
+          </div>
+          <div class="booking__split">
+            <form data-details-form novalidate>
+              <div class="form-grid">
+            <div class="field"><label for="b-firstName" data-i18n="book.firstName">firstName</label>
+              <input id="b-firstName" name="firstName" type="text" autocomplete="given-name"><span class="error" data-error-for="firstName" role="alert"></span></div>
+            <div class="field"><label for="b-lastName" data-i18n="book.lastName">lastName</label>
+              <input id="b-lastName" name="lastName" type="text" autocomplete="family-name"><span class="error" data-error-for="lastName" role="alert"></span></div>
+            <div class="field field--full"><label for="b-email" data-i18n="book.email">email</label>
+              <input id="b-email" name="email" type="email" autocomplete="email"><span class="error" data-error-for="email" role="alert"></span></div>
+            <div class="field field--full"><label for="b-phone" data-i18n="book.phone">phone</label>
+              <input id="b-phone" name="phone" type="tel" autocomplete="tel"><span class="error" data-error-for="phone" role="alert"></span></div>
+                <div class="field field--full"><label for="b-notes" data-i18n="book.notes">Special requests</label><textarea id="b-notes" name="notes" rows="3" maxlength="500"></textarea></div>
+                <div class="field field--full"><label class="check"><input type="checkbox" name="consent" id="b-consent"> <span><span data-i18n="book.consent.pre">I have read the</span> <a href="privacy.html" target="_blank" rel="noopener" data-i18n="footer.privacy">Privacy policy</a> <span data-i18n="book.consent.post">and agree.</span></span></label>
+                  <span class="error" data-error-for="consent" role="alert"></span></div>
+              </div>
+              <button class="btn btn--primary" type="submit" data-i18n="book.confirm">Confirm booking</button>
+              <p class="form-status" role="status" aria-live="polite" data-details-status></p>
+            </form>
+            <aside class="summary" aria-labelledby="summary-title">
+              <h3 id="summary-title" data-i18n="book.summary.title">Your stay</h3>
+              <dl data-summary></dl>
+            </aside>
+          </div>
+        </div>
+
+        <!-- Schritt 4: Bestätigung (nur nach erfolgreicher Speicherung im Backend) -->
+        <div data-step="4" hidden>
+          <div class="done" tabindex="-1" data-done>
+            <h2 data-i18n="book.done.title">Your booking is saved</h2>
+            <p class="done__number"><span data-i18n="book.done.number">Booking number</span>: <strong data-booking-number></strong></p>
+            <dl class="summary" data-done-summary></dl>
+            <p class="muted" data-i18n="book.done.text">Demo booking.</p>
+            <button type="button" class="btn btn--primary" data-action="restart" data-i18n="book.done.new">Make another booking</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--sand" id="contact" aria-labelledby="contact-title">
+      <div class="container stack">
+        <h2 id="contact-title" data-i18n="book.contact.title">Contact the hotel</h2>
+        <p class="lead" data-i18n="book.contact.text"></p>
+        <ul class="contact-list">
+          <li data-i18n="footer.address">[Address to be confirmed]</li>
+          <li data-i18n="footer.phone">[Phone to be confirmed]</li>
+          <li data-i18n="footer.email">[Email to be confirmed]</li>
+          <li data-i18n="book.contact.hours">Reception hours: to be confirmed</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h2>Hotel Ismini</h2>
+          <p data-i18n="footer.tagline">A Mediterranean retreat in Greece.</p>
+        </div>
+        <nav aria-label="Footer">
+          <h3 data-i18n="footer.explore">Explore</h3>
+          <ul>
+            <li><a href="rooms.html" data-i18n="nav.rooms">Rooms &amp; Suites</a></li>
+            <li><a href="experiences.html" data-i18n="nav.experiences">Experiences</a></li>
+            <li><a href="restaurant.html" data-i18n="nav.restaurant">Restaurant</a></li>
+            <li><a href="wellness.html" data-i18n="nav.wellness">Wellness</a></li>
+          </ul>
+        </nav>
+        <div>
+          <h3 data-i18n="footer.contact">Contact</h3>
+          <ul>
+            <li data-i18n="footer.address">[Address to be confirmed]</li>
+            <li data-i18n="footer.phone">[Phone to be confirmed]</li>
+            <li data-i18n="footer.email">[Email to be confirmed]</li>
+          </ul>
+        </div>
+        <div>
+          <h3 data-i18n="footer.legal">Legal</h3>
+          <ul>
+            <li><a href="imprint.html" data-i18n="footer.imprint">Imprint</a></li>
+            <li><a href="privacy.html" data-i18n="footer.privacy">Privacy policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-i18n="footer.rights">© Hotel Ismini. Demo version.</span>
+        <!-- Cookie-Einstellungen: Button folgt mit cookie-consent.js in Phase 9 -->
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
