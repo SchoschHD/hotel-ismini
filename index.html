@@ -19,7 +19,7 @@
   <meta property="og:site_name" content="Hotel Ismini">
   <link rel="preload" href="assets/fonts/cormorant-garamond-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="images/hero/hero-home.svg" as="image" fetchpriority="high" data-image="hero/hero-home">
+  <link rel="preload" as="image" type="image/avif" imagesrcset="images/hero/hero-home-480.avif 480w, images/hero/hero-home-768.avif 768w" imagesizes="100vw" fetchpriority="high" data-image="hero/hero-home">
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/components.css">
@@ -61,7 +61,7 @@
   <main id="main">
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero__media">
-        <picture data-image="hero/hero-home"><img src="images/hero/hero-home.svg" width="1920" height="1080" alt="" fetchpriority="high" decoding="async"></picture>
+        <picture data-image="hero/hero-home"><source type="image/avif" srcset="images/hero/hero-home-480.avif 480w, images/hero/hero-home-768.avif 768w" sizes="100vw"><source type="image/webp" srcset="images/hero/hero-home-480.webp 480w, images/hero/hero-home-768.webp 768w" sizes="100vw"><img src="images/hero/hero-home-768.webp" width="768" height="768" alt="" fetchpriority="high" decoding="async"></picture>
       </div>
       <div class="container hero__content">
         <h1 id="hero-title" data-i18n="hero.title">Where the Aegean meets serenity.</h1>
@@ -82,8 +82,8 @@
           <a class="link-arrow" href="rooms.html" data-i18n="welcome.link">Explore the rooms</a>
         </div>
         <div class="welcome__images">
-          <div class="frame" data-reveal="image"><picture data-image="hero/welcome-1"><img src="images/hero/welcome-1.svg" width="960" height="1200" loading="lazy" decoding="async" alt="Natural stone hotel entrance with a pale wooden door and an olive tree" data-i18n-attr="alt:alt.11"></picture></div>
-          <div class="frame" data-reveal="image"><picture data-image="hero/welcome-2"><img src="images/hero/welcome-2.svg" width="800" height="800" loading="lazy" decoding="async" alt="Linen bedding beside a light wooden bedside table" data-i18n-attr="alt:alt.12"></picture></div>
+          <div class="frame" data-reveal="image"><picture data-image="hero/welcome-1"><source type="image/avif" srcset="images/hero/welcome-1-480.avif 480w, images/hero/welcome-1-800.avif 800w, images/hero/welcome-1-1152.avif 1152w" sizes="100vw"><source type="image/webp" srcset="images/hero/welcome-1-480.webp 480w, images/hero/welcome-1-800.webp 800w, images/hero/welcome-1-1152.webp 1152w" sizes="100vw"><img src="images/hero/welcome-1-1152.webp" width="1152" height="768" loading="lazy" decoding="async" alt="Natural stone hotel entrance with a pale wooden door and an olive tree" data-i18n-attr="alt:alt.11"></picture></div>
+          <div class="frame" data-reveal="image"><picture data-image="hero/welcome-2"><source type="image/avif" srcset="images/hero/welcome-2-387.avif 387w" sizes="100vw"><source type="image/webp" srcset="images/hero/welcome-2-387.webp 387w" sizes="100vw"><img src="images/hero/welcome-2-387.webp" width="387" height="516" loading="lazy" decoding="async" alt="Linen bedding beside a light wooden bedside table" data-i18n-attr="alt:alt.12"></picture></div>
         </div>
       </div>
     </section>
@@ -95,7 +95,7 @@
           <p class="muted" data-i18n="rooms.intro">Three sample room types.</p>
         </div>
         <div class="rooms-preview">
-          <div class="frame rooms-preview__main" data-reveal="image"><picture data-image="rooms/room-sea-1"><img src="images/rooms/room-sea-1.svg" width="1200" height="960" loading="lazy" decoding="async" alt="Bright room with a large window and a view of the sea" data-i18n-attr="alt:alt.13"></picture></div>
+          <div class="frame rooms-preview__main" data-reveal="image"><picture data-image="rooms/room-sea-1"><source type="image/avif" srcset="images/rooms/room-sea-1-480.avif 480w, images/rooms/room-sea-1-612.avif 612w" sizes="(max-width: 900px) 100vw, 50vw"><source type="image/webp" srcset="images/rooms/room-sea-1-480.webp 480w, images/rooms/room-sea-1-612.webp 612w" sizes="(max-width: 900px) 100vw, 50vw"><img src="images/rooms/room-sea-1-612.webp" width="612" height="524" loading="lazy" decoding="async" alt="Bright room with a large window and a view of the sea" data-i18n-attr="alt:alt.13"></picture></div>
           <ul class="room-list" data-reveal>
             <li><a href="rooms.html#garden"><h3 data-i18n="rooms.r1">Garden Room</h3><span class="muted demo-tag" data-i18n="rooms.r1.meta">Sample, 2 guests</span></a></li>
             <li><a href="rooms.html#sea"><h3 data-i18n="rooms.r2">Sea View Room</h3><span class="muted demo-tag" data-i18n="rooms.r2.meta">Sample, 2 guests</span></a></li>
@@ -107,7 +107,7 @@
     </section>
 
     <section class="band" aria-labelledby="greece-title">
-      <div class="band__media"><picture data-image="hero/greece-band"><img src="images/hero/greece-band.svg" width="1920" height="1080" loading="lazy" decoding="async" alt="Greek coastline with a small white chapel, olive trees and turquoise sea" data-i18n-attr="alt:alt.14"></picture></div>
+      <div class="band__media"><picture data-image="hero/greece-band"><source type="image/avif" srcset="images/hero/greece-band-480.avif 480w, images/hero/greece-band-800.avif 800w, images/hero/greece-band-1200.avif 1200w, images/hero/greece-band-1370.avif 1370w" sizes="100vw"><source type="image/webp" srcset="images/hero/greece-band-480.webp 480w, images/hero/greece-band-800.webp 800w, images/hero/greece-band-1200.webp 1200w, images/hero/greece-band-1370.webp 1370w" sizes="100vw"><img src="images/hero/greece-band-1200.webp" width="1370" height="768" loading="lazy" decoding="async" alt="Greek coastline with a small white chapel, olive trees and turquoise sea" data-i18n-attr="alt:alt.14"></picture></div>
       <div class="container">
         <div class="stack" data-reveal>
           <h2 id="greece-title" data-i18n="greece.title">The beauty of Greece</h2>
@@ -123,9 +123,9 @@
           <p class="lead" data-i18n="exp.intro">When the light turns amber, the evening begins.</p>
         </div>
         <div class="grid">
-          <figure data-reveal><div class="frame"><picture data-image="experiences/sunset-dining"><img src="images/experiences/sunset-dining.svg" width="900" height="1200" loading="lazy" decoding="async" alt="Terrace tables with candles at sunset" data-i18n-attr="alt:alt.04"></picture></div><figcaption data-i18n="exp.e1">Sunset dining</figcaption></figure>
-          <figure data-reveal data-reveal-delay="1"><div class="frame"><picture data-image="experiences/evening-lounge"><img src="images/experiences/evening-lounge.svg" width="900" height="1200" loading="lazy" decoding="async" alt="Dark wood lounge with warm amber lamps" data-i18n-attr="alt:alt.15"></picture></div><figcaption data-i18n="exp.e2">Evening lounge</figcaption></figure>
-          <figure data-reveal data-reveal-delay="2"><div class="frame"><picture data-image="experiences/private-moments"><img src="images/experiences/private-moments.svg" width="900" height="1200" loading="lazy" decoding="async" alt="Candlelit table for two above the sea" data-i18n-attr="alt:alt.16"></picture></div><figcaption data-i18n="exp.e3">Private moments</figcaption></figure>
+          <figure data-reveal><div class="frame"><picture data-image="experiences/sunset-dining"><source type="image/avif" srcset="images/experiences/sunset-dining-480.avif 480w, images/experiences/sunset-dining-800.avif 800w, images/experiences/sunset-dining-1152.avif 1152w" sizes="(max-width: 900px) 100vw, 50vw"><source type="image/webp" srcset="images/experiences/sunset-dining-480.webp 480w, images/experiences/sunset-dining-800.webp 800w, images/experiences/sunset-dining-1152.webp 1152w" sizes="(max-width: 900px) 100vw, 50vw"><img src="images/experiences/sunset-dining-1152.webp" width="1152" height="768" loading="lazy" decoding="async" alt="Terrace tables with candles at sunset" data-i18n-attr="alt:alt.04"></picture></div><figcaption data-i18n="exp.e1">Sunset dining</figcaption></figure>
+          <figure data-reveal data-reveal-delay="1"><div class="frame"><picture data-image="experiences/evening-lounge"><source type="image/avif" srcset="images/experiences/evening-lounge-480.avif 480w, images/experiences/evening-lounge-640.avif 640w" sizes="(max-width: 900px) 100vw, 50vw"><source type="image/webp" srcset="images/experiences/evening-lounge-480.webp 480w, images/experiences/evening-lounge-640.webp 640w" sizes="(max-width: 900px) 100vw, 50vw"><img src="images/experiences/evening-lounge-640.webp" width="640" height="470" loading="lazy" decoding="async" alt="Dark wood lounge with warm amber lamps" data-i18n-attr="alt:alt.15"></picture></div><figcaption data-i18n="exp.e2">Evening lounge</figcaption></figure>
+          <figure data-reveal data-reveal-delay="2"><div class="frame"><picture data-image="experiences/private-moments"><source type="image/avif" srcset="images/experiences/private-moments-399.avif 399w" sizes="(max-width: 900px) 100vw, 50vw"><source type="image/webp" srcset="images/experiences/private-moments-399.webp 399w" sizes="(max-width: 900px) 100vw, 50vw"><img src="images/experiences/private-moments-399.webp" width="399" height="501" loading="lazy" decoding="async" alt="Candlelit table for two above the sea" data-i18n-attr="alt:alt.16"></picture></div><figcaption data-i18n="exp.e3">Private moments</figcaption></figure>
         </div>
         <p style="margin-top: var(--space-5)"><a class="link-arrow" href="experiences.html" data-i18n="exp.cta">See all experiences</a></p>
       </div>
@@ -138,7 +138,7 @@
           <p data-i18n="dining.text">Mediterranean cooking with the sea in view.</p>
           <a class="link-arrow" href="restaurant.html" data-i18n="dining.cta">View the restaurant</a>
         </div>
-        <div class="frame dining__image" data-reveal="image"><picture data-image="restaurant/dining-terrace"><img src="images/restaurant/dining-terrace.svg" width="1200" height="900" loading="lazy" decoding="async" alt="Restaurant terrace with light wooden tables, olive trees and a view of the sea" data-i18n-attr="alt:alt.17"></picture></div>
+        <div class="frame dining__image" data-reveal="image"><picture data-image="restaurant/dining-terrace"><source type="image/avif" srcset="images/restaurant/dining-terrace-480.avif 480w, images/restaurant/dining-terrace-800.avif 800w, images/restaurant/dining-terrace-1152.avif 1152w" sizes="(max-width: 900px) 100vw, 50vw"><source type="image/webp" srcset="images/restaurant/dining-terrace-480.webp 480w, images/restaurant/dining-terrace-800.webp 800w, images/restaurant/dining-terrace-1152.webp 1152w" sizes="(max-width: 900px) 100vw, 50vw"><img src="images/restaurant/dining-terrace-1152.webp" width="1152" height="768" loading="lazy" decoding="async" alt="Restaurant terrace with light wooden tables, olive trees and a view of the sea" data-i18n-attr="alt:alt.17"></picture></div>
       </div>
     </section>
 

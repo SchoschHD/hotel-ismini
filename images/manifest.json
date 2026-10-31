@@ -1,1 +1,77 @@
-{}
+{
+  "experiences/evening-lounge": {
+    "width": 640,
+    "height": 470,
+    "widths": [
+      480,
+      640
+    ]
+  },
+  "experiences/private-moments": {
+    "width": 399,
+    "height": 501,
+    "widths": [
+      399
+    ]
+  },
+  "experiences/sunset-dining": {
+    "width": 1152,
+    "height": 768,
+    "widths": [
+      480,
+      800,
+      1152
+    ]
+  },
+  "hero/greece-band": {
+    "width": 1370,
+    "height": 768,
+    "widths": [
+      480,
+      800,
+      1200,
+      1370
+    ]
+  },
+  "hero/hero-home": {
+    "width": 768,
+    "height": 768,
+    "widths": [
+      480,
+      768
+    ]
+  },
+  "hero/welcome-1": {
+    "width": 1152,
+    "height": 768,
+    "widths": [
+      480,
+      800,
+      1152
+    ]
+  },
+  "hero/welcome-2": {
+    "width": 387,
+    "height": 516,
+    "widths": [
+      387
+    ]
+  },
+  "restaurant/dining-terrace": {
+    "width": 1152,
+    "height": 768,
+    "widths": [
+      480,
+      800,
+      1152
+    ]
+  },
+  "rooms/room-sea-1": {
+    "width": 612,
+    "height": 524,
+    "widths": [
+      480,
+      612
+    ]
+  }
+}
