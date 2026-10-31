@@ -1,0 +1,5 @@
+# Replace hotel-ismini.example in sitemap.xml before launch.
+User-agent: *
+Allow: /
+Disallow: /api/
+Sitemap: https://hotel-ismini.example/sitemap.xml

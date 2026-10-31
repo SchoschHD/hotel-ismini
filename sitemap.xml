@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Replace hotel-ismini.example with the production domain before launch. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://hotel-ismini.example/</loc></url>
+  <url><loc>https://hotel-ismini.example/rooms.html</loc></url>
+  <url><loc>https://hotel-ismini.example/experiences.html</loc></url>
+  <url><loc>https://hotel-ismini.example/restaurant.html</loc></url>
+  <url><loc>https://hotel-ismini.example/wellness.html</loc></url>
+  <url><loc>https://hotel-ismini.example/booking.html</loc></url>
+  <url><loc>https://hotel-ismini.example/imprint.html</loc></url>
+  <url><loc>https://hotel-ismini.example/privacy.html</loc></url>
+</urlset>
