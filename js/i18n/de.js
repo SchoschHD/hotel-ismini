@@ -77,6 +77,10 @@ export default {
   "footer.privacy": "Datenschutzerklärung",
   "footer.cookies": "Cookie-Einstellungen",
   "footer.rights": "© Hotel Ismini. Demoversion.",
+  "cookies.title": "Datenschutzeinstellungen",
+  "cookies.text": "Diese Website verwendet nur den lokalen Browserspeicher, um Sprache und Cookie-Auswahl zu speichern. Derzeit werden keine Analyse-, Marketing- oder Drittanbieter-Cookies verwendet.",
+  "cookies.necessary": "Nur notwendige",
+  "cookies.all": "Alle akzeptieren",
 
   // Rooms-Seite
   "meta.rooms.title": "Zimmer & Suiten | Hotel Ismini",
@@ -336,7 +340,7 @@ export default {
   "legal.privacy.rights.title": "Ihre Rechte und Beschwerden",
   "legal.privacy.rights.text": "Je nach anwendbarem Recht können Sie Auskunft, Berichtigung, Löschung oder Einschränkung verlangen, widersprechen, eine Kopie erhalten oder eine Einwilligung widerrufen. Wenden Sie sich an den Betreiber und prüfen Sie die zuständige Datenschutzaufsicht.",
   "legal.privacy.cookies.title": "Cookies und ähnliche Technologien",
-  "legal.privacy.cookies.text": "Die aktuelle Anwendung nutzt den lokalen Browserspeicher, um die gewählte Sprache zu merken. Eine Cookie-Einwilligung oder Verwaltung ist noch nicht implementiert. Prüfen Sie vor dem Start alle eingesetzten Dienste auf Cookies und ähnliche Technologien.",
+  "legal.privacy.cookies.text": "Die aktuelle Anwendung nutzt den lokalen Browserspeicher, um Sprache und Cookie-Auswahl zu speichern. Derzeit werden keine Analyse-, Marketing- oder Drittanbieter-Cookies verwendet. Prüfen Sie vor dem Start die veröffentlichte Website und alle Drittanbieter auf Cookies oder ähnliche Speicher und aktualisieren Sie diese Hinweise bei Änderungen.",
   "legal.privacy.changes.title": "Änderungen dieser Erklärung",
   "legal.privacy.changes.text": "Aktualisieren Sie diese Erklärung, wenn sich Betreiber, Verarbeitung, Dienste oder rechtliche Anforderungen ändern."
 };

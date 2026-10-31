@@ -210,11 +210,19 @@
       </div>
       <div class="footer-bottom">
         <span data-i18n="footer.rights">© Hotel Ismini. Demo version.</span>
-        <!-- Cookie-Einstellungen: Button folgt mit cookie-consent.js in Phase 9 -->
+        <button type="button" class="cookie-settings" data-cookie-settings data-i18n="footer.cookies">Cookie settings</button>
       </div>
     </div>
   </footer>
 
+  <aside class="cookie-banner" data-cookie-consent aria-labelledby="cookie-title" hidden>
+    <h2 id="cookie-title" data-i18n="cookies.title">Privacy choices</h2>
+    <p data-i18n="cookies.text">This site uses local storage only to remember your language and cookie choice. No analytics, marketing or third-party cookies are currently used.</p>
+    <div class="cookie-banner__actions">
+      <button type="button" class="btn btn--primary" data-cookie-necessary data-i18n="cookies.necessary">Necessary only</button>
+      <button type="button" class="btn btn--ghost" data-cookie-all data-i18n="cookies.all">Accept all</button>
+    </div>
+  </aside>
   <script type="module" src="js/main.js"></script>
 </body>
 </html>
