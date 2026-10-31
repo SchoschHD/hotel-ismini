@@ -1,0 +1,8 @@
+Hier liegen deine Original-Fotos (JPG, PNG oder WebP).
+Ordner und Dateiname müssen zur Tabelle in images/IMAGE-LIST.md passen,
+zum Beispiel:  images-src/hero/hero-home.jpg
+
+Danach im Projektordner:  npm run images
+
+Dieser Ordner wird vom Webserver nicht ausgeliefert. Die optimierten Bilder
+landen automatisch in images/.

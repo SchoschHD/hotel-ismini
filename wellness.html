@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#193D52">
   <link rel="preload" href="assets/fonts/cormorant-garamond-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="images/wellness/wellness-hero.svg" as="image" fetchpriority="high">
+  <link rel="preload" href="images/wellness/wellness-hero.svg" as="image" fetchpriority="high" data-image="wellness/wellness-hero">
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/components.css">
@@ -50,7 +50,7 @@
 
   <main id="main">
     <section class="hero hero--medium well-hero" aria-labelledby="page-title">
-      <div class="hero__media"><img src="images/wellness/wellness-hero.svg" width="1920" height="1080" fetchpriority="high" decoding="async" alt=""></div>
+      <div class="hero__media"><picture data-image="wellness/wellness-hero"><img src="images/wellness/wellness-hero.svg" width="1920" height="1080" fetchpriority="high" decoding="async" alt=""></picture></div>
       <div class="container hero__content">
         <h1 id="page-title" data-i18n="well.page.title">Stone, water and quiet</h1>
         <p data-i18n="well.page.intro"></p>
@@ -60,7 +60,7 @@
 
     <section class="section" id="spa" aria-labelledby="spa-title">
       <div class="container well-spa">
-        <div class="frame well-spa__img" style="--ratio: 4 / 3" data-reveal="image"><img src="images/wellness/spa-2.svg" width="1200" height="900" loading="lazy" decoding="async" alt="Quiet treatment room with a massage table and a natural stone wall" data-i18n-attr="alt:alt.37"></div>
+        <div class="frame well-spa__img" style="--ratio: 4 / 3" data-reveal="image"><picture data-image="wellness/spa-2"><img src="images/wellness/spa-2.svg" width="1200" height="900" loading="lazy" decoding="async" alt="Quiet treatment room with a massage table and a natural stone wall" data-i18n-attr="alt:alt.37"></picture></div>
         <div class="well-spa__text stack" data-reveal><h2 id="spa-title" data-i18n="well.spa.title">Spa</h2><p data-i18n="well.spa.text"></p></div>
       </div>
     </section>
@@ -69,16 +69,16 @@
       <div class="container well-pool">
         <div class="stack" data-reveal><h2 id="pool-title" data-i18n="well.pool.title">Pool</h2><p class="lead" data-i18n="well.pool.text"></p></div>
         <div class="frame slider" style="--ratio: 3 / 2" data-slider data-autoplay="6500" data-reveal="image" role="group" data-i18n-attr="aria-label:well.pool.slides" aria-label="Photos of the pool">
-          <div class="slider__slide"><button type="button" class="gallery-item" data-gallery="pool"><img src="images/wellness/pool-2.svg" width="1200" height="800" loading="lazy" decoding="async" alt="Pool terrace with a view of the sea in the late afternoon" data-i18n-attr="alt:alt.38"></button></div>
-          <div class="slider__slide"><button type="button" class="gallery-item" data-gallery="pool"><img src="images/wellness/pool-3.svg" width="1200" height="800" loading="lazy" decoding="async" alt="Poolside sun loungers with white towels and olive trees" data-i18n-attr="alt:alt.39"></button></div>
-          <div class="slider__slide"><button type="button" class="gallery-item" data-gallery="pool"><img src="images/wellness/pool-1.svg" width="1000" height="1000" loading="lazy" decoding="async" alt="Infinity pool with sun loungers and a view of the sea" data-i18n-attr="alt:alt.19"></button></div>
+          <div class="slider__slide"><button type="button" class="gallery-item" data-gallery="pool"><picture data-image="wellness/pool-2"><img src="images/wellness/pool-2.svg" width="1200" height="800" loading="lazy" decoding="async" alt="Pool terrace with a view of the sea in the late afternoon" data-i18n-attr="alt:alt.38"></picture></button></div>
+          <div class="slider__slide"><button type="button" class="gallery-item" data-gallery="pool"><picture data-image="wellness/pool-3"><img src="images/wellness/pool-3.svg" width="1200" height="800" loading="lazy" decoding="async" alt="Poolside sun loungers with white towels and olive trees" data-i18n-attr="alt:alt.39"></picture></button></div>
+          <div class="slider__slide"><button type="button" class="gallery-item" data-gallery="pool"><picture data-image="wellness/pool-1"><img src="images/wellness/pool-1.svg" width="1000" height="1000" loading="lazy" decoding="async" alt="Infinity pool with sun loungers and a view of the sea" data-i18n-attr="alt:alt.19"></picture></button></div>
         </div>
       </div>
     </section>
 
     <section class="section" id="relaxation" aria-labelledby="relax-title">
       <div class="container well-relax">
-        <div class="frame" style="--ratio: 4 / 5" data-reveal="image"><img src="images/wellness/relax-1.svg" width="1000" height="1250" loading="lazy" decoding="async" alt="Relaxation room with daybeds and linen curtains" data-i18n-attr="alt:alt.40"></div>
+        <div class="frame" style="--ratio: 4 / 5" data-reveal="image"><picture data-image="wellness/relax-1"><img src="images/wellness/relax-1.svg" width="1000" height="1250" loading="lazy" decoding="async" alt="Relaxation room with daybeds and linen curtains" data-i18n-attr="alt:alt.40"></picture></div>
         <div class="stack" data-reveal><h2 id="relax-title" data-i18n="well.relax.title">Relaxation</h2><p class="lead" data-i18n="well.relax.text"></p></div>
       </div>
     </section>

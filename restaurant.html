@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#193D52">
   <link rel="preload" href="assets/fonts/cormorant-garamond-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="images/restaurant/restaurant-hero.svg" as="image" fetchpriority="high">
+  <link rel="preload" href="images/restaurant/restaurant-hero.svg" as="image" fetchpriority="high" data-image="restaurant/restaurant-hero">
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/components.css">
@@ -50,7 +50,7 @@
 
   <main id="main">
     <section class="hero hero--medium" aria-labelledby="page-title">
-      <div class="hero__media"><img src="images/restaurant/restaurant-hero.svg" width="1920" height="1080" fetchpriority="high" decoding="async" alt=""></div>
+      <div class="hero__media"><picture data-image="restaurant/restaurant-hero"><img src="images/restaurant/restaurant-hero.svg" width="1920" height="1080" fetchpriority="high" decoding="async" alt=""></picture></div>
       <div class="container hero__content">
         <h1 id="page-title" data-i18n="rest.page.title">Mediterranean dining</h1>
         <p data-i18n="rest.page.intro"></p>
@@ -61,7 +61,7 @@
     <section class="section" aria-labelledby="intro-title">
       <div class="container rest-intro">
         <div class="stack" data-reveal><h2 id="intro-title" data-i18n="rest.intro.title">A table by the water</h2><p class="lead" data-i18n="rest.intro.text"></p></div>
-        <div class="frame" style="--ratio: 4 / 3" data-reveal="image"><img src="images/restaurant/rest-3.svg" width="1200" height="900" loading="lazy" decoding="async" alt="Restaurant interior with warm wood and a stone wall" data-i18n-attr="alt:alt.25"></div>
+        <div class="frame" style="--ratio: 4 / 3" data-reveal="image"><picture data-image="restaurant/rest-3"><img src="images/restaurant/rest-3.svg" width="1200" height="900" loading="lazy" decoding="async" alt="Restaurant interior with warm wood and a stone wall" data-i18n-attr="alt:alt.25"></picture></div>
       </div>
     </section>
 
@@ -94,10 +94,10 @@
 
     <section class="section rest-gallery-wrap" aria-label="Gallery" data-i18n-attr="aria-label:rest.gallery">
       <div class="container"><div class="rest-gallery">
-          <button type="button" class="gallery-item" data-gallery="restaurant"><img src="images/restaurant/rest-1.svg" width="1200" height="900" loading="lazy" decoding="async" alt="Elegantly plated Mediterranean seafood dish" data-i18n-attr="alt:alt.26"></button>
-          <button type="button" class="gallery-item" data-gallery="restaurant"><img src="images/restaurant/rest-2.svg" width="1200" height="900" loading="lazy" decoding="async" alt="Restaurant terrace at sunset with candles" data-i18n-attr="alt:alt.27"></button>
-          <button type="button" class="gallery-item" data-gallery="restaurant"><img src="images/restaurant/rest-3.svg" width="1200" height="900" loading="lazy" decoding="async" alt="Restaurant interior with warm wood and a stone wall" data-i18n-attr="alt:alt.25"></button>
-          <button type="button" class="gallery-item" data-gallery="restaurant"><img src="images/restaurant/rest-4.svg" width="1200" height="900" loading="lazy" decoding="async" alt="Dessert and a glass of wine in candlelight" data-i18n-attr="alt:alt.28"></button>
+          <button type="button" class="gallery-item" data-gallery="restaurant"><picture data-image="restaurant/rest-1"><img src="images/restaurant/rest-1.svg" width="1200" height="900" loading="lazy" decoding="async" alt="Elegantly plated Mediterranean seafood dish" data-i18n-attr="alt:alt.26"></picture></button>
+          <button type="button" class="gallery-item" data-gallery="restaurant"><picture data-image="restaurant/rest-2"><img src="images/restaurant/rest-2.svg" width="1200" height="900" loading="lazy" decoding="async" alt="Restaurant terrace at sunset with candles" data-i18n-attr="alt:alt.27"></picture></button>
+          <button type="button" class="gallery-item" data-gallery="restaurant"><picture data-image="restaurant/rest-3"><img src="images/restaurant/rest-3.svg" width="1200" height="900" loading="lazy" decoding="async" alt="Restaurant interior with warm wood and a stone wall" data-i18n-attr="alt:alt.25"></picture></button>
+          <button type="button" class="gallery-item" data-gallery="restaurant"><picture data-image="restaurant/rest-4"><img src="images/restaurant/rest-4.svg" width="1200" height="900" loading="lazy" decoding="async" alt="Dessert and a glass of wine in candlelight" data-i18n-attr="alt:alt.28"></picture></button>
       </div></div>
     </section>
 

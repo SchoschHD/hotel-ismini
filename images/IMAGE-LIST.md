@@ -1,8 +1,12 @@
 # Bildliste für Hotel Ismini
 
-Alle Bilder liegen lokal in `images/`. Aktuell stehen dort **SVG-Platzhalter**.
-Ersetze sie durch echte Fotos (WebP oder AVIF) mit gleichem Dateinamen und passe die Endung in den HTML-Dateien an.
-Seitenverhältnis und Größe unten einhalten, damit das Layout stabil bleibt.
+Aktuell stehen in `images/` **SVG-Platzhalter**. So tauschst du sie gegen echte Fotos aus:
+
+1. Lege dein Foto (JPG, PNG oder WebP) unter `images-src/` ab, mit **demselben Ordner und Namen** wie in der Tabelle, zum Beispiel `images-src/hero/hero-home.jpg`.
+2. Führe `npm run images` aus. Das erzeugt AVIF und WebP in 480 bis 1920 px und stellt alle Seiten auf `<picture>` mit `srcset` um.
+3. Fertig. Fehlt ein Foto, bleibt der Platzhalter sichtbar.
+
+Größe und Seitenverhältnis unten möglichst einhalten (Originale gern größer, mindestens 1920 px breit bei Vollbild-Motiven).
 
 | Datei | Größe | Motiv | Prompt für KI-Bild |
 |---|---|---|---|

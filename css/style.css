@@ -16,6 +16,8 @@ body {
   text-rendering: optimizeLegibility;
 }
 img, svg, video { max-width: 100%; display: block; }
+/* <picture> erzeugt keine eigene Box, das Bild verhält sich wie ein direktes Kind */
+picture { display: contents; }
 img { height: auto; }
 a { color: inherit; text-underline-offset: 0.25em; }
 button, input, select, textarea { font: inherit; color: inherit; }

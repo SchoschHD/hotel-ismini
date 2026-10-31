@@ -57,7 +57,12 @@ function createApp(db, { rateLimitMax = 60 } = {}) {
 
   // Website: nur freigegebene Ordner und Seiten (nie backend/, tests/, .env, *.db)
   for (const dir of ["css", "js", "images", "assets"]) {
-    app.use("/" + dir, express.static(path.join(SITE_ROOT, dir), { maxAge: "1h", dotfiles: "ignore" }));
+    app.use("/" + dir, express.static(path.join(SITE_ROOT, dir), {
+      maxAge: "1h",
+      dotfiles: "ignore",
+      // Express kennt AVIF nicht von selbst: richtigen Dateityp setzen
+      setHeaders: (res, filePath) => { if (filePath.endsWith(".avif")) res.type("image/avif"); },
+    }));
   }
   app.get("/", (req, res) => res.sendFile(path.join(SITE_ROOT, "index.html")));
   app.get("/:page.html", (req, res, next) => {

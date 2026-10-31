@@ -4,11 +4,14 @@
   "description": "Website und Buchungssystem für Hotel Ismini (Demo)",
   "private": true,
   "type": "commonjs",
-  "engines": { "node": ">=20" },
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "start": "node backend/server.js",
     "dev": "node --watch backend/server.js",
-    "test": "node --test"
+    "test": "node --test",
+    "images": "node tools/optimize-images.js && node tools/apply-images.js"
   },
   "dependencies": {
     "better-sqlite3": "^11.5.0",
@@ -16,5 +19,8 @@
     "express": "^4.21.0",
     "express-rate-limit": "^7.4.0",
     "helmet": "^8.0.0"
+  },
+  "devDependencies": {
+    "sharp": "^0.35.5"
   }
 }

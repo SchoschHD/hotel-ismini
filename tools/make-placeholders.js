@@ -53,7 +53,8 @@ const images = [
   ["gallery/gallery-5", 1200, 600, sunset, "Sea at sunset", "The Aegean sea at sunset seen from a hotel balcony, photorealistic, 2:1"],
 ];
 
-let list = "# Bildliste für Hotel Ismini\n\nAlle Bilder liegen lokal in `images/`. Aktuell stehen dort **SVG-Platzhalter**.\nErsetze sie durch echte Fotos (WebP oder AVIF) mit gleichem Dateinamen und passe die Endung in den HTML-Dateien an.\nSeitenverhältnis und Größe unten einhalten, damit das Layout stabil bleibt.\n\n| Datei | Größe | Motiv | Prompt für KI-Bild |\n|---|---|---|---|\n";
+let list = "# Bildliste für Hotel Ismini\n\nAktuell stehen in `images/` **SVG-Platzhalter**. So tauschst du sie gegen echte Fotos aus:\n\n1. Lege dein Foto (JPG, PNG oder WebP) unter `images-src/` ab, mit **demselben Ordner und Namen** wie in der Tabelle, zum Beispiel `images-src/hero/hero-home.jpg`.\n2. Führe `npm run images` aus. Das erzeugt AVIF und WebP in 480 bis 1920 px und stellt alle Seiten auf `<picture>` mit `srcset` um.\n3. Fertig. Fehlt ein Foto, bleibt der Platzhalter sichtbar.\n\nGröße und Seitenverhältnis unten möglichst einhalten (Originale gern größer, mindestens 1920 px breit bei Vollbild-Motiven).\n\n";
+list += "| Datei | Größe | Motiv | Prompt für KI-Bild |\n|---|---|---|---|\n";
 
 for (const [file, w, h, c, label, prompt] of images) {
   const out = path.join("images", file + ".svg");

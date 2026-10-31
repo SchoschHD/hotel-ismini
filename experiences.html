@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#193D52">
   <link rel="preload" href="assets/fonts/cormorant-garamond-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="images/experiences/exp-hero.svg" as="image" fetchpriority="high">
+  <link rel="preload" href="images/experiences/exp-hero.svg" as="image" fetchpriority="high" data-image="experiences/exp-hero">
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/components.css">
@@ -49,7 +49,7 @@
 
   <main id="main">
     <section class="hero hero--medium" aria-labelledby="page-title">
-      <div class="hero__media"><img src="images/experiences/exp-hero.svg" width="1920" height="1080" fetchpriority="high" decoding="async" alt=""></div>
+      <div class="hero__media"><picture data-image="experiences/exp-hero"><img src="images/experiences/exp-hero.svg" width="1920" height="1080" fetchpriority="high" decoding="async" alt=""></picture></div>
       <div class="container hero__content">
         <h1 id="page-title" data-i18n="exp.page.title">Evenings worth staying for</h1>
         <p data-i18n="exp.page.intro"></p>
@@ -58,7 +58,7 @@
     </section>
 
     <section class="xp xp--full" id="sunset-dining" aria-labelledby="xp1">
-      <div class="xp__media"><img src="images/experiences/exp-dining-wide.svg" width="1920" height="1080" loading="lazy" decoding="async" alt="Long dinner table on a stone terrace at sunset with candles" data-i18n-attr="alt:alt.01"></div>
+      <div class="xp__media"><picture data-image="experiences/exp-dining-wide"><img src="images/experiences/exp-dining-wide.svg" width="1920" height="1080" loading="lazy" decoding="async" alt="Long dinner table on a stone terrace at sunset with candles" data-i18n-attr="alt:alt.01"></picture></div>
       <div class="container"><div class="xp__text stack" data-reveal>
         <h2 id="xp1" data-i18n="exp.s1.title">Sunset dining</h2><p class="lead" data-i18n="exp.s1.text"></p>
         <a class="link-arrow" href="booking.html" data-i18n="exp.ask">Ask about an experience</a></div></div>
@@ -68,7 +68,7 @@
       <div class="container xp-split__grid">
         <div class="stack" data-reveal><h2 id="xp2" data-i18n="exp.s2.title">Evening lounge</h2><p class="lead" data-i18n="exp.s2.text"></p>
           <a class="link-arrow" href="booking.html" data-i18n="exp.ask">Ask about an experience</a></div>
-        <div class="frame xp-split__img" style="--ratio: 4 / 5" data-reveal="image"><img src="images/experiences/evening-lounge.svg" width="900" height="1200" loading="lazy" decoding="async" alt="Dark walnut lounge with warm amber lamps" data-i18n-attr="alt:alt.02"></div>
+        <div class="frame xp-split__img" style="--ratio: 4 / 5" data-reveal="image"><picture data-image="experiences/evening-lounge"><img src="images/experiences/evening-lounge.svg" width="900" height="1200" loading="lazy" decoding="async" alt="Dark walnut lounge with warm amber lamps" data-i18n-attr="alt:alt.02"></picture></div>
       </div>
     </section>
 
@@ -76,9 +76,9 @@
       <div class="container">
         <div class="stack xp-trio__head" data-reveal><h2 id="xp3" data-i18n="exp.s3.title">Private experiences</h2><p class="lead" data-i18n="exp.s3.text"></p></div>
         <div class="xp-trio__row">
-          <div class="frame" style="--ratio: 3 / 4" data-reveal="image"><img src="images/experiences/private-moments.svg" width="900" height="1200" loading="lazy" decoding="async" alt="Candlelit table for two on a stone terrace above the sea" data-i18n-attr="alt:alt.03"></div>
-          <div class="frame" style="--ratio: 3 / 4" data-reveal="image"><img src="images/experiences/sunset-dining.svg" width="900" height="1200" loading="lazy" decoding="async" alt="Terrace tables with candles at sunset" data-i18n-attr="alt:alt.04"></div>
-          <div class="frame" style="--ratio: 3 / 4" data-reveal="image"><img src="images/experiences/evening-lounge.svg" width="900" height="1200" loading="lazy" decoding="async" alt="Quiet lounge corner with amber light" data-i18n-attr="alt:alt.05"></div>
+          <div class="frame" style="--ratio: 3 / 4" data-reveal="image"><picture data-image="experiences/private-moments"><img src="images/experiences/private-moments.svg" width="900" height="1200" loading="lazy" decoding="async" alt="Candlelit table for two on a stone terrace above the sea" data-i18n-attr="alt:alt.03"></picture></div>
+          <div class="frame" style="--ratio: 3 / 4" data-reveal="image"><picture data-image="experiences/sunset-dining"><img src="images/experiences/sunset-dining.svg" width="900" height="1200" loading="lazy" decoding="async" alt="Terrace tables with candles at sunset" data-i18n-attr="alt:alt.04"></picture></div>
+          <div class="frame" style="--ratio: 3 / 4" data-reveal="image"><picture data-image="experiences/evening-lounge"><img src="images/experiences/evening-lounge.svg" width="900" height="1200" loading="lazy" decoding="async" alt="Quiet lounge corner with amber light" data-i18n-attr="alt:alt.05"></picture></div>
         </div>
         <p style="margin-top: var(--space-4)"><a class="link-arrow" href="booking.html" data-i18n="exp.ask">Ask about an experience</a></p>
       </div>
@@ -87,9 +87,9 @@
     <section class="section xp-split xp-split--reverse" id="islands" aria-labelledby="xp4">
       <div class="container xp-split__grid">
         <div class="frame slider" style="--ratio: 3 / 2" data-slider data-autoplay="6000" data-reveal="image" role="group" data-i18n-attr="aria-label:exp.slides" aria-label="Photos of island experiences">
-          <div class="slider__slide"><button type="button" class="gallery-item" data-gallery="islands"><img src="images/experiences/exp-island-1.svg" width="1200" height="800" loading="lazy" decoding="async" alt="Small Greek island harbour at dusk with fishing boats" data-i18n-attr="alt:alt.06"></button></div>
-          <div class="slider__slide"><button type="button" class="gallery-item" data-gallery="islands"><img src="images/experiences/exp-island-2.svg" width="1200" height="800" loading="lazy" decoding="async" alt="Wooden boat on calm Aegean water at golden hour" data-i18n-attr="alt:alt.07"></button></div>
-          <div class="slider__slide"><button type="button" class="gallery-item" data-gallery="islands"><img src="images/experiences/exp-island-3.svg" width="1200" height="800" loading="lazy" decoding="async" alt="Whitewashed island village with lit windows at dusk" data-i18n-attr="alt:alt.08"></button></div>
+          <div class="slider__slide"><button type="button" class="gallery-item" data-gallery="islands"><picture data-image="experiences/exp-island-1"><img src="images/experiences/exp-island-1.svg" width="1200" height="800" loading="lazy" decoding="async" alt="Small Greek island harbour at dusk with fishing boats" data-i18n-attr="alt:alt.06"></picture></button></div>
+          <div class="slider__slide"><button type="button" class="gallery-item" data-gallery="islands"><picture data-image="experiences/exp-island-2"><img src="images/experiences/exp-island-2.svg" width="1200" height="800" loading="lazy" decoding="async" alt="Wooden boat on calm Aegean water at golden hour" data-i18n-attr="alt:alt.07"></picture></button></div>
+          <div class="slider__slide"><button type="button" class="gallery-item" data-gallery="islands"><picture data-image="experiences/exp-island-3"><img src="images/experiences/exp-island-3.svg" width="1200" height="800" loading="lazy" decoding="async" alt="Whitewashed island village with lit windows at dusk" data-i18n-attr="alt:alt.08"></picture></button></div>
         </div>
         <div class="stack" data-reveal><h2 id="xp4" data-i18n="exp.s4.title">Greek island experiences</h2><p class="lead" data-i18n="exp.s4.text"></p>
           <a class="link-arrow" href="booking.html" data-i18n="exp.ask">Ask about an experience</a></div>
@@ -98,14 +98,14 @@
 
     <section class="section xp-romantic" id="romantic" aria-labelledby="xp5">
       <div class="container xp-romantic__grid">
-        <div class="frame" style="--ratio: 4 / 5" data-reveal="image"><img src="images/experiences/exp-romantic.svg" width="1200" height="1500" loading="lazy" decoding="async" alt="Intimate table for two with candles and flowers at dusk" data-i18n-attr="alt:alt.09"></div>
+        <div class="frame" style="--ratio: 4 / 5" data-reveal="image"><picture data-image="experiences/exp-romantic"><img src="images/experiences/exp-romantic.svg" width="1200" height="1500" loading="lazy" decoding="async" alt="Intimate table for two with candles and flowers at dusk" data-i18n-attr="alt:alt.09"></picture></div>
         <div class="stack" data-reveal><h2 id="xp5" data-i18n="exp.s5.title">Romantic moments</h2><p class="lead" data-i18n="exp.s5.text"></p>
           <a class="link-arrow" href="booking.html" data-i18n="exp.ask">Ask about an experience</a></div>
       </div>
     </section>
 
     <section class="xp xp--full xp--right" id="sea-view" aria-labelledby="xp6">
-      <div class="xp__media"><img src="images/experiences/exp-seaview.svg" width="1920" height="900" loading="lazy" decoding="async" alt="View of the sea at sunset through large lounge windows" data-i18n-attr="alt:alt.10"></div>
+      <div class="xp__media"><picture data-image="experiences/exp-seaview"><img src="images/experiences/exp-seaview.svg" width="1920" height="900" loading="lazy" decoding="async" alt="View of the sea at sunset through large lounge windows" data-i18n-attr="alt:alt.10"></picture></div>
       <div class="container"><div class="xp__text stack" data-reveal>
         <h2 id="xp6" data-i18n="exp.s6.title">Sea view experiences</h2><p class="lead" data-i18n="exp.s6.text"></p>
         <a class="link-arrow" href="booking.html" data-i18n="exp.ask">Ask about an experience</a></div></div>

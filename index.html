@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#193D52">
   <link rel="preload" href="assets/fonts/cormorant-garamond-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="images/hero/hero-home.svg" as="image" fetchpriority="high">
+  <link rel="preload" href="images/hero/hero-home.svg" as="image" fetchpriority="high" data-image="hero/hero-home">
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/components.css">
@@ -50,7 +50,7 @@
   <main id="main">
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero__media">
-        <img src="images/hero/hero-home.svg" width="1920" height="1080" alt="" fetchpriority="high" decoding="async">
+        <picture data-image="hero/hero-home"><img src="images/hero/hero-home.svg" width="1920" height="1080" alt="" fetchpriority="high" decoding="async"></picture>
       </div>
       <div class="container hero__content">
         <h1 id="hero-title" data-i18n="hero.title">Where the Aegean meets serenity.</h1>
@@ -71,8 +71,8 @@
           <a class="link-arrow" href="rooms.html" data-i18n="welcome.link">Explore the rooms</a>
         </div>
         <div class="welcome__images">
-          <div class="frame" data-reveal="image"><img src="images/hero/welcome-1.svg" width="960" height="1200" loading="lazy" decoding="async" alt="Natural stone hotel entrance with a pale wooden door and an olive tree" data-i18n-attr="alt:alt.11"></div>
-          <div class="frame" data-reveal="image"><img src="images/hero/welcome-2.svg" width="800" height="800" loading="lazy" decoding="async" alt="Linen bedding beside a light wooden bedside table" data-i18n-attr="alt:alt.12"></div>
+          <div class="frame" data-reveal="image"><picture data-image="hero/welcome-1"><img src="images/hero/welcome-1.svg" width="960" height="1200" loading="lazy" decoding="async" alt="Natural stone hotel entrance with a pale wooden door and an olive tree" data-i18n-attr="alt:alt.11"></picture></div>
+          <div class="frame" data-reveal="image"><picture data-image="hero/welcome-2"><img src="images/hero/welcome-2.svg" width="800" height="800" loading="lazy" decoding="async" alt="Linen bedding beside a light wooden bedside table" data-i18n-attr="alt:alt.12"></picture></div>
         </div>
       </div>
     </section>
@@ -84,7 +84,7 @@
           <p class="muted" data-i18n="rooms.intro">Three sample room types.</p>
         </div>
         <div class="rooms-preview">
-          <div class="frame rooms-preview__main" data-reveal="image"><img src="images/rooms/room-sea-1.svg" width="1200" height="960" loading="lazy" decoding="async" alt="Bright room with a large window and a view of the sea" data-i18n-attr="alt:alt.13"></div>
+          <div class="frame rooms-preview__main" data-reveal="image"><picture data-image="rooms/room-sea-1"><img src="images/rooms/room-sea-1.svg" width="1200" height="960" loading="lazy" decoding="async" alt="Bright room with a large window and a view of the sea" data-i18n-attr="alt:alt.13"></picture></div>
           <ul class="room-list" data-reveal>
             <li><a href="rooms.html#garden"><h3 data-i18n="rooms.r1">Garden Room</h3><span class="muted demo-tag" data-i18n="rooms.r1.meta">Sample, 2 guests</span></a></li>
             <li><a href="rooms.html#sea"><h3 data-i18n="rooms.r2">Sea View Room</h3><span class="muted demo-tag" data-i18n="rooms.r2.meta">Sample, 2 guests</span></a></li>
@@ -96,7 +96,7 @@
     </section>
 
     <section class="band" aria-labelledby="greece-title">
-      <div class="band__media"><img src="images/hero/greece-band.svg" width="1920" height="1080" loading="lazy" decoding="async" alt="Greek coastline with a small white chapel, olive trees and turquoise sea" data-i18n-attr="alt:alt.14"></div>
+      <div class="band__media"><picture data-image="hero/greece-band"><img src="images/hero/greece-band.svg" width="1920" height="1080" loading="lazy" decoding="async" alt="Greek coastline with a small white chapel, olive trees and turquoise sea" data-i18n-attr="alt:alt.14"></picture></div>
       <div class="container">
         <div class="stack" data-reveal>
           <h2 id="greece-title" data-i18n="greece.title">The beauty of Greece</h2>
@@ -112,9 +112,9 @@
           <p class="lead" data-i18n="exp.intro">When the light turns amber, the evening begins.</p>
         </div>
         <div class="grid">
-          <figure data-reveal><div class="frame"><img src="images/experiences/sunset-dining.svg" width="900" height="1200" loading="lazy" decoding="async" alt="Terrace tables with candles at sunset" data-i18n-attr="alt:alt.04"></div><figcaption data-i18n="exp.e1">Sunset dining</figcaption></figure>
-          <figure data-reveal data-reveal-delay="1"><div class="frame"><img src="images/experiences/evening-lounge.svg" width="900" height="1200" loading="lazy" decoding="async" alt="Dark wood lounge with warm amber lamps" data-i18n-attr="alt:alt.15"></div><figcaption data-i18n="exp.e2">Evening lounge</figcaption></figure>
-          <figure data-reveal data-reveal-delay="2"><div class="frame"><img src="images/experiences/private-moments.svg" width="900" height="1200" loading="lazy" decoding="async" alt="Candlelit table for two above the sea" data-i18n-attr="alt:alt.16"></div><figcaption data-i18n="exp.e3">Private moments</figcaption></figure>
+          <figure data-reveal><div class="frame"><picture data-image="experiences/sunset-dining"><img src="images/experiences/sunset-dining.svg" width="900" height="1200" loading="lazy" decoding="async" alt="Terrace tables with candles at sunset" data-i18n-attr="alt:alt.04"></picture></div><figcaption data-i18n="exp.e1">Sunset dining</figcaption></figure>
+          <figure data-reveal data-reveal-delay="1"><div class="frame"><picture data-image="experiences/evening-lounge"><img src="images/experiences/evening-lounge.svg" width="900" height="1200" loading="lazy" decoding="async" alt="Dark wood lounge with warm amber lamps" data-i18n-attr="alt:alt.15"></picture></div><figcaption data-i18n="exp.e2">Evening lounge</figcaption></figure>
+          <figure data-reveal data-reveal-delay="2"><div class="frame"><picture data-image="experiences/private-moments"><img src="images/experiences/private-moments.svg" width="900" height="1200" loading="lazy" decoding="async" alt="Candlelit table for two above the sea" data-i18n-attr="alt:alt.16"></picture></div><figcaption data-i18n="exp.e3">Private moments</figcaption></figure>
         </div>
         <p style="margin-top: var(--space-5)"><a class="link-arrow" href="experiences.html" data-i18n="exp.cta">See all experiences</a></p>
       </div>
@@ -127,19 +127,19 @@
           <p data-i18n="dining.text">Mediterranean cooking with the sea in view.</p>
           <a class="link-arrow" href="restaurant.html" data-i18n="dining.cta">View the restaurant</a>
         </div>
-        <div class="frame dining__image" data-reveal="image"><img src="images/restaurant/dining-terrace.svg" width="1200" height="900" loading="lazy" decoding="async" alt="Restaurant terrace with light wooden tables, olive trees and a view of the sea" data-i18n-attr="alt:alt.17"></div>
+        <div class="frame dining__image" data-reveal="image"><picture data-image="restaurant/dining-terrace"><img src="images/restaurant/dining-terrace.svg" width="1200" height="900" loading="lazy" decoding="async" alt="Restaurant terrace with light wooden tables, olive trees and a view of the sea" data-i18n-attr="alt:alt.17"></picture></div>
       </div>
     </section>
 
     <section class="section section--sand" aria-labelledby="wellness-title">
       <div class="container wellness">
-        <div class="frame" data-reveal="image"><img src="images/wellness/spa-1.svg" width="800" height="1333" loading="lazy" decoding="async" alt="Spa relaxation area with natural stone walls and soft towels" data-i18n-attr="alt:alt.18"></div>
+        <div class="frame" data-reveal="image"><picture data-image="wellness/spa-1"><img src="images/wellness/spa-1.svg" width="800" height="1333" loading="lazy" decoding="async" alt="Spa relaxation area with natural stone walls and soft towels" data-i18n-attr="alt:alt.18"></picture></div>
         <div class="wellness__text stack" data-reveal>
           <h2 id="wellness-title" data-i18n="wellness.title">Wellness &amp; Relaxation</h2>
           <p data-i18n="wellness.text">Stone, water and quiet.</p>
           <a class="link-arrow" href="wellness.html" data-i18n="wellness.cta">Discover wellness</a>
         </div>
-        <div class="frame" data-reveal="image"><img src="images/wellness/pool-1.svg" width="1000" height="1000" loading="lazy" decoding="async" alt="Infinity pool with sun loungers and a view of the sea" data-i18n-attr="alt:alt.19"></div>
+        <div class="frame" data-reveal="image"><picture data-image="wellness/pool-1"><img src="images/wellness/pool-1.svg" width="1000" height="1000" loading="lazy" decoding="async" alt="Infinity pool with sun loungers and a view of the sea" data-i18n-attr="alt:alt.19"></picture></div>
       </div>
     </section>
 
@@ -147,11 +147,11 @@
       <div class="container">
         <h2 id="gallery-title" data-i18n="gallery.title" data-reveal style="margin-bottom: var(--space-5)">Gallery</h2>
         <div class="mosaic">
-          <button type="button" class="gallery-item" data-gallery="home"><img src="images/gallery/gallery-1.svg" width="1200" height="1200" loading="lazy" decoding="async" alt="Hotel terrace at golden hour with a view of the sea" data-i18n-attr="alt:alt.20"></button>
-          <button type="button" class="gallery-item" data-gallery="home"><img src="images/gallery/gallery-2.svg" width="900" height="600" loading="lazy" decoding="async" alt="Breakfast table with fruit, yoghurt and honey" data-i18n-attr="alt:alt.21"></button>
-          <button type="button" class="gallery-item" data-gallery="home"><img src="images/gallery/gallery-3.svg" width="900" height="600" loading="lazy" decoding="async" alt="Whitewashed courtyard with an olive tree" data-i18n-attr="alt:alt.22"></button>
-          <button type="button" class="gallery-item" data-gallery="home"><img src="images/gallery/gallery-4.svg" width="600" height="1200" loading="lazy" decoding="async" alt="Narrow whitewashed stairway with a blue door" data-i18n-attr="alt:alt.23"></button>
-          <button type="button" class="gallery-item" data-gallery="home"><img src="images/gallery/gallery-5.svg" width="1200" height="600" loading="lazy" decoding="async" alt="The sea at sunset seen from a balcony" data-i18n-attr="alt:alt.24"></button>
+          <button type="button" class="gallery-item" data-gallery="home"><picture data-image="gallery/gallery-1"><img src="images/gallery/gallery-1.svg" width="1200" height="1200" loading="lazy" decoding="async" alt="Hotel terrace at golden hour with a view of the sea" data-i18n-attr="alt:alt.20"></picture></button>
+          <button type="button" class="gallery-item" data-gallery="home"><picture data-image="gallery/gallery-2"><img src="images/gallery/gallery-2.svg" width="900" height="600" loading="lazy" decoding="async" alt="Breakfast table with fruit, yoghurt and honey" data-i18n-attr="alt:alt.21"></picture></button>
+          <button type="button" class="gallery-item" data-gallery="home"><picture data-image="gallery/gallery-3"><img src="images/gallery/gallery-3.svg" width="900" height="600" loading="lazy" decoding="async" alt="Whitewashed courtyard with an olive tree" data-i18n-attr="alt:alt.22"></picture></button>
+          <button type="button" class="gallery-item" data-gallery="home"><picture data-image="gallery/gallery-4"><img src="images/gallery/gallery-4.svg" width="600" height="1200" loading="lazy" decoding="async" alt="Narrow whitewashed stairway with a blue door" data-i18n-attr="alt:alt.23"></picture></button>
+          <button type="button" class="gallery-item" data-gallery="home"><picture data-image="gallery/gallery-5"><img src="images/gallery/gallery-5.svg" width="1200" height="600" loading="lazy" decoding="async" alt="The sea at sunset seen from a balcony" data-i18n-attr="alt:alt.24"></picture></button>
         </div>
       </div>
     </section>
