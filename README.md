@@ -2,7 +2,7 @@
 
 Responsive, multilingual hotel website with a Node.js/Express backend, SQLite demo database and server-side booking availability checks.
 
-> **Demo status:** Room data, prices, contact details and images are sample content. The booking system stores demo data, does not take payments and does not send emails. Complete and legally review the content before production use.
+> **Demo status:** Room data, prices, contact details and images are sample content. The booking system stores demo data and does not take payments. Email notifications are available when SMTP settings are configured. Complete and legally review the content before production use.
 
 ## Requirements
 
@@ -26,7 +26,21 @@ Copy `.env.example` to `.env`:
 Copy-Item .env.example .env
 ```
 
-Available settings are `PORT`, `DB_PATH` and `TRUST_PROXY`. Never commit `.env` or database files.
+Available settings are `PORT`, `DB_PATH`, `TRUST_PROXY`, `ADMIN_PASSWORD` and the SMTP settings below. Never commit `.env` or database files.
+
+To send a confirmation to the guest and a notification to the hotel after a booking, fill in all SMTP settings:
+
+```env
+SMTP_HOST=smtp.example.com
+SMTP_PORT=587
+SMTP_SECURE=false
+SMTP_USER=your-smtp-user
+SMTP_PASS=your-smtp-password
+MAIL_FROM=Hotel Ismini <booking@example.com>
+HOTEL_EMAIL=hotel@example.com
+```
+
+Use `SMTP_SECURE=true` for SMTP providers that require implicit TLS (usually port 465). If the SMTP settings are incomplete, bookings still work but the API returns `emailSent: false` and logs the reason.
 
 ## Start in VS Code
 
@@ -93,7 +107,7 @@ Do not delete a production database without a verified backup and migration plan
 ## API
 
 - `GET /api/availability` - checks available room types and server-calculated prices
-- `POST /api/bookings` - validates and stores a demo booking
+- `POST /api/bookings` - validates and stores a demo booking; sends two emails when SMTP is configured
 - `POST /api/restaurant-requests` - stores a restaurant request
 
 Prices and availability are never trusted from the browser. The server validates booking input and prevents overlapping bookings in a transaction.
