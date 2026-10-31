@@ -3,6 +3,8 @@
    Gehört zu: components.css (.site-nav), responsive.css (.nav-links)
    ========================================================== */
 
+import { t } from "./i18n/i18n.js";
+
 export function initNavigation() {
   const nav = document.querySelector(".site-nav");
   if (!nav) return;
@@ -25,7 +27,16 @@ export function initNavigation() {
     nav.classList.toggle("menu-open", open);
     toggle.setAttribute("aria-expanded", String(open));
     document.body.style.overflow = open ? "hidden" : "";
+    updateToggleLabel();
   }
+
+  // Beschriftung des Hamburger-Buttons je nach Zustand und Sprache
+  function updateToggleLabel() {
+    const open = toggle.getAttribute("aria-expanded") === "true";
+    toggle.setAttribute("aria-label", t(open ? "nav.menuClose" : "nav.menu"));
+  }
+  document.addEventListener("languagechange", updateToggleLabel);
+  updateToggleLabel();
 
   toggle.addEventListener("click", () => setMenu(toggle.getAttribute("aria-expanded") !== "true"));
 

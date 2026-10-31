@@ -555,6 +555,7 @@ Erstelle eine saubere Projektstruktur.
 
 Verwende beispielsweise:
 
+```
 hotel-ismini/
 │
 ├── index.html
@@ -625,6 +626,7 @@ hotel-ismini/
 ├── .gitignore
 ├── package.json
 └── README.md
+```
 
 Die Struktur darf erweitert oder sinnvoll angepasst werden.
 
