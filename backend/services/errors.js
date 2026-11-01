@@ -17,4 +17,11 @@ class ConflictError extends Error {
   }
 }
 
-module.exports = { ValidationError, ConflictError };
+class TooManyRequestsError extends Error {
+  constructor() {
+    super("Too many requests");
+    this.name = "TooManyRequestsError";
+  }
+}
+
+module.exports = { ValidationError, ConflictError, TooManyRequestsError };

@@ -11,7 +11,7 @@
    Verwendet von: controllers/availabilityController.js, controllers/bookingController.js
    ========================================================== */
 const crypto = require("node:crypto");
-const { ValidationError, ConflictError } = require("./errors");
+const { ValidationError, ConflictError, TooManyRequestsError } = require("./errors");
 const v = require("./validation");
 
 const LIMITS = { maxNights: 30, maxAdults: 10, maxChildren: 10, maxRooms: 5 };
@@ -104,7 +104,7 @@ function parseGuest(input) {
   const errors = {};
   const firstName = v.cleanText(input.firstName);
   const lastName = v.cleanText(input.lastName);
-  const email = v.cleanText(input.email);
+  const email = v.cleanText(input.email).toLowerCase();
   const phone = v.cleanText(input.phone);
   const notes = v.cleanText(input.notes, { multiline: true });
 
@@ -123,7 +123,10 @@ function parseGuest(input) {
  * Zimmer lesen, Belegung prüfen, Preis berechnen, speichern.
  * Gibt die gespeicherte Buchung zurück oder wirft ValidationError / ConflictError.
  */
-function createBooking(db, input, today = v.todayInAthens()) {
+function createBooking(db, input, today = v.todayInAthens(), {
+  maxPerEmailPerMinute = 3,
+  maxPerMinute = 10,
+} = {}) {
   const stay = parseStay(input, today);
   const guest = parseGuest(input);
   const roomId = v.toInteger(input.roomId);
@@ -137,6 +140,18 @@ function createBooking(db, input, today = v.todayInAthens()) {
   `);
 
   const save = db.transaction(() => {
+    const recentBookings = db.prepare(`
+      SELECT COUNT(*) AS count FROM bookings
+      WHERE status = 'confirmed' AND created_at >= datetime('now', '-1 minute')
+    `).get().count;
+    if (recentBookings >= maxPerMinute) throw new TooManyRequestsError();
+
+    const recentEmailBookings = db.prepare(`
+      SELECT COUNT(*) AS count FROM bookings
+      WHERE email = ? AND status = 'confirmed' AND created_at >= datetime('now', '-1 minute')
+    `).get(guest.email).count;
+    if (recentEmailBookings >= maxPerEmailPerMinute) throw new TooManyRequestsError();
+
     const room = db.prepare("SELECT * FROM room_types WHERE id = ? AND active = 1").get(roomId);
     if (!room) throw new ValidationError({ roomId: "unknown_room" });
     if (!fitsGuests(room, stay)) throw new ValidationError({ adults: "too_many_guests" });

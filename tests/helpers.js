@@ -6,7 +6,12 @@ const { createApp } = require("../backend/server");
 
 async function startTestServer(options = {}) {
   const db = openDatabase(":memory:");
-  const app = createApp(db, { rateLimitMax: 1000, ...options });
+  const app = createApp(db, {
+    rateLimitMax: 1000,
+    bookingGlobalRateLimitMax: 1000,
+    bookingEmailRateLimitMax: 1000,
+    ...options,
+  });
   const server = await new Promise((resolve) => { const s = app.listen(0, () => resolve(s)); });
   const base = `http://127.0.0.1:${server.address().port}`;
 

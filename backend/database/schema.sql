@@ -44,6 +44,8 @@ CREATE TABLE IF NOT EXISTS bookings (
   CHECK (check_out > check_in)
 );
 CREATE INDEX IF NOT EXISTS idx_bookings_overlap ON bookings (room_type_id, status, check_in, check_out);
+CREATE INDEX IF NOT EXISTS idx_bookings_email_created ON bookings (email, status, created_at);
+CREATE INDEX IF NOT EXISTS idx_bookings_status_created ON bookings (status, created_at);
 
 -- Anfragen an das Restaurant (noch keine bestätigten Reservierungen).
 CREATE TABLE IF NOT EXISTS restaurant_requests (
@@ -56,5 +58,6 @@ CREATE TABLE IF NOT EXISTS restaurant_requests (
   time       TEXT    NOT NULL,
   notes      TEXT,
   language   TEXT    NOT NULL DEFAULT 'en',
+  status     TEXT    NOT NULL DEFAULT 'pending' CHECK (status IN ('pending', 'confirmed', 'rejected')),
   created_at TEXT    NOT NULL DEFAULT (datetime('now'))
 );

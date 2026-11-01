@@ -1,5 +1,6 @@
 const { ValidationError } = require("../services/errors");
 const v = require("../services/validation");
+const { sendCancellationEmail } = require("../services/emailService");
 
 function listData(req, res) {
   const db = req.app.locals.db;
@@ -11,7 +12,7 @@ function listData(req, res) {
     FROM bookings b JOIN room_types r ON r.id = b.room_type_id ORDER BY b.created_at DESC
   `).all();
   const restaurantRequests = db.prepare(`
-    SELECT id, name, email, phone, guests, date, time, notes, language, created_at AS createdAt
+    SELECT id, name, email, phone, guests, date, time, notes, language, status, created_at AS createdAt
     FROM restaurant_requests ORDER BY created_at DESC
   `).all();
   const rooms = db.prepare(`
@@ -22,11 +23,61 @@ function listData(req, res) {
   res.json({ bookings, restaurantRequests, rooms });
 }
 
-function cancelBooking(req, res) {
+async function cancelBooking(req, res, next) {
+  try {
+    const id = v.toInteger(req.params.id);
+    if (!(id >= 1)) throw new ValidationError({ id: "invalid" });
+    const db = req.app.locals.db;
+    const booking = db.prepare(`
+      SELECT b.*, r.name AS roomName FROM bookings b JOIN room_types r ON r.id = b.room_type_id
+      WHERE b.id = ? AND b.status = 'confirmed'
+    `).get(id);
+    if (!booking) return res.status(404).json({ error: "booking_not_found_or_cancelled" });
+    db.prepare("UPDATE bookings SET status = 'cancelled' WHERE id = ? AND status = 'confirmed'").run(id);
+    const email = await sendCancellationEmail({
+      ...booking,
+      bookingNumber: booking.booking_number,
+      checkIn: booking.check_in,
+      checkOut: booking.check_out,
+      totalPrice: booking.total_cents,
+      currency: booking.currency,
+      firstName: booking.first_name,
+      lastName: booking.last_name,
+      children: booking.children,
+      rooms: booking.rooms,
+      adults: booking.adults,
+      email: booking.email,
+    });
+    res.json({ status: "cancelled", ...email });
+  } catch (error) {
+    next(error);
+  }
+}
+
+function deleteBooking(req, res) {
   const id = v.toInteger(req.params.id);
   if (!(id >= 1)) throw new ValidationError({ id: "invalid" });
-  const result = req.app.locals.db.prepare("UPDATE bookings SET status = 'cancelled' WHERE id = ? AND status = 'confirmed'").run(id);
-  if (!result.changes) return res.status(404).json({ error: "booking_not_found_or_cancelled" });
+  const result = req.app.locals.db.prepare("DELETE FROM bookings WHERE id = ?").run(id);
+  if (!result.changes) return res.status(404).json({ error: "booking_not_found" });
+  res.status(204).end();
+}
+
+function updateRestaurantRequestStatus(req, res) {
+  const id = v.toInteger(req.params.id);
+  const status = v.cleanText(req.body?.status);
+  if (!(id >= 1) || !["pending", "confirmed", "rejected"].includes(status)) {
+    throw new ValidationError({ status: "invalid" });
+  }
+  const result = req.app.locals.db.prepare("UPDATE restaurant_requests SET status = ? WHERE id = ?").run(status, id);
+  if (!result.changes) return res.status(404).json({ error: "restaurant_request_not_found" });
+  res.status(204).end();
+}
+
+function deleteRestaurantRequest(req, res) {
+  const id = v.toInteger(req.params.id);
+  if (!(id >= 1)) throw new ValidationError({ id: "invalid" });
+  const result = req.app.locals.db.prepare("DELETE FROM restaurant_requests WHERE id = ?").run(id);
+  if (!result.changes) return res.status(404).json({ error: "restaurant_request_not_found" });
   res.status(204).end();
 }
 
@@ -48,4 +99,4 @@ function updateRoom(req, res) {
   res.status(204).end();
 }
 
-module.exports = { listData, cancelBooking, updateRoom };
+module.exports = { listData, cancelBooking, deleteBooking, updateRestaurantRequestStatus, deleteRestaurantRequest, updateRoom };

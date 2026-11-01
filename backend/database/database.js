@@ -19,6 +19,10 @@ function openDatabase(filePath = path.join(__dirname, "ismini.db"), { seed = tru
   db.pragma("busy_timeout = 5000");  // kurz warten, statt sofort zu scheitern
 
   db.exec(fs.readFileSync(path.join(__dirname, "schema.sql"), "utf8"));
+  const requestColumns = db.prepare("PRAGMA table_info(restaurant_requests)").all();
+  if (!requestColumns.some((column) => column.name === "status")) {
+    db.exec("ALTER TABLE restaurant_requests ADD COLUMN status TEXT NOT NULL DEFAULT 'pending'");
+  }
 
   const roomCount = db.prepare("SELECT COUNT(*) AS n FROM room_types").get().n;
   if (seed && roomCount === 0) {

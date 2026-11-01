@@ -118,3 +118,23 @@ test("Rate-Limit schützt Schreib-Endpunkte", async (t) => {
   for (let i = 0; i < 5; i++) statuses.push((await s.post("/api/bookings", bookingPayload({ roomId: 999 }))).status);
   assert.equal(statuses.at(-1), 429);
 });
+
+test("Buchungen mit derselben E-Mail werden pro Minute begrenzt", async (t) => {
+  const s = await startTestServer({ bookingEmailRateLimitMax: 2 }); t.after(s.close);
+  s.db.prepare("UPDATE room_types SET units = 10 WHERE id = 1").run();
+  assert.equal((await s.post("/api/bookings", bookingPayload())).status, 201);
+  assert.equal((await s.post("/api/bookings", bookingPayload({ checkIn: "2031-06-11", checkOut: "2031-06-12" }))).status, 201);
+  const blocked = await s.post("/api/bookings", bookingPayload({ checkIn: "2031-06-12", checkOut: "2031-06-13" }));
+  assert.equal(blocked.status, 429);
+  assert.equal((await blocked.json()).error, "too_many_requests");
+  assert.equal(countBookings(s.db), 2);
+});
+
+test("Buchungen werden global pro Minute begrenzt", async (t) => {
+  const s = await startTestServer({ bookingGlobalRateLimitMax: 2 }); t.after(s.close);
+  s.db.prepare("UPDATE room_types SET units = 10 WHERE id = 1").run();
+  assert.equal((await s.post("/api/bookings", bookingPayload({ email: "one@example.com" }))).status, 201);
+  assert.equal((await s.post("/api/bookings", bookingPayload({ email: "two@example.com", checkIn: "2031-06-11", checkOut: "2031-06-12" }))).status, 201);
+  assert.equal((await s.post("/api/bookings", bookingPayload({ email: "three@example.com", checkIn: "2031-06-12", checkOut: "2031-06-13" }))).status, 429);
+  assert.equal(countBookings(s.db), 2);
+});

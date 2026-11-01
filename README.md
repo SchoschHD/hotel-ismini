@@ -26,7 +26,16 @@ Copy `.env.example` to `.env`:
 Copy-Item .env.example .env
 ```
 
-Available settings are `PORT`, `DB_PATH`, `TRUST_PROXY`, `ADMIN_PASSWORD` and the SMTP settings below. Never commit `.env` or database files.
+Available settings are `PORT`, `DB_PATH`, `TRUST_PROXY`, `BOOKING_RATE_LIMIT_MAX`, `BOOKING_GLOBAL_RATE_LIMIT_MAX`, `BOOKING_EMAIL_RATE_LIMIT_MAX`, `ADMIN_PASSWORD` and the SMTP settings below. Never commit `.env` or database files.
+
+The booking API has an IP-based limit (60 requests per 15 minutes by default),
+a database-backed global limit (10 confirmed bookings per rolling minute by
+default), and a database-backed limit per normalized email address (3 confirmed
+bookings per rolling minute by default). These can be configured with
+`BOOKING_RATE_LIMIT_MAX`, `BOOKING_GLOBAL_RATE_LIMIT_MAX` and
+`BOOKING_EMAIL_RATE_LIMIT_MAX`. Keep these values conservative to prevent
+automated booking and email spam; changing the SMTP password alone does not
+replace these limits.
 
 To send a confirmation to the guest and a notification to the hotel after a booking, fill in all SMTP settings:
 
@@ -109,6 +118,8 @@ Do not delete a production database without a verified backup and migration plan
 - `GET /api/availability` - checks available room types and server-calculated prices
 - `POST /api/bookings` - validates and stores a demo booking; sends two emails when SMTP is configured
 - `POST /api/restaurant-requests` - stores a restaurant request
+
+The admin area is available at `/admin.html` after setting `ADMIN_PASSWORD`. It lists bookings and restaurant requests, supports search and refresh, can cancel a booking (including a cancellation email to the guest), and can permanently delete a booking. The confirmation and cancellation emails include styled HTML and plain-text content in `backend/services/emailService.js`.
 
 Prices and availability are never trusted from the browser. The server validates booking input and prevents overlapping bookings in a transaction.
 

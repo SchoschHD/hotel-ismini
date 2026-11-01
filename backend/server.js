@@ -20,10 +20,24 @@ const adminRoutes = require("./routes/adminRoutes");
 const SITE_ROOT = path.join(__dirname, "..");
 const PAGES = ["index", "rooms", "experiences", "restaurant", "wellness", "booking", "imprint", "privacy"];
 
+function positiveInt(value, fallback) {
+  const parsed = Number(value);
+  return Number.isInteger(parsed) && parsed > 0 ? parsed : fallback;
+}
+
 /** Baut die Express-App. Die Datenbank wird übergeben, damit Tests eine eigene nutzen können. */
-function createApp(db, { rateLimitMax = 60 } = {}) {
+function createApp(db, {
+  rateLimitMax = 60,
+  bookingRateLimitMax = positiveInt(process.env.BOOKING_RATE_LIMIT_MAX, rateLimitMax),
+  bookingGlobalRateLimitMax = positiveInt(process.env.BOOKING_GLOBAL_RATE_LIMIT_MAX, 10),
+  bookingEmailRateLimitMax = positiveInt(process.env.BOOKING_EMAIL_RATE_LIMIT_MAX, 3),
+} = {}) {
   const app = express();
   app.locals.db = db;
+  app.locals.bookingLimits = {
+    maxPerMinute: bookingGlobalRateLimitMax,
+    maxPerEmailPerMinute: bookingEmailRateLimitMax,
+  };
   app.locals.adminPage = path.join(SITE_ROOT, "admin.html");
   app.locals.adminLoginPage = path.join(SITE_ROOT, "admin-login.html");
   app.disable("x-powered-by");
@@ -64,8 +78,9 @@ function createApp(db, { rateLimitMax = 60 } = {}) {
   });
   app.use("/api", express.json({ limit: "20kb" }));
   const writeLimiter = rateLimit({ windowMs: 15 * 60 * 1000, limit: rateLimitMax, standardHeaders: true, legacyHeaders: false, message: { error: "too_many_requests" } });
+  const bookingLimiter = rateLimit({ windowMs: 15 * 60 * 1000, limit: bookingRateLimitMax, standardHeaders: true, legacyHeaders: false, message: { error: "too_many_requests" } });
   const adminLoginLimiter = rateLimit({ windowMs: 15 * 60 * 1000, limit: Math.min(rateLimitMax, 10), standardHeaders: true, legacyHeaders: false, message: { error: "too_many_requests" } });
-  app.use("/api/bookings", writeLimiter);
+  app.use("/api/bookings", bookingLimiter);
   app.use("/api/restaurant-requests", writeLimiter);
 
   app.use("/api/availability", availabilityRoutes);
