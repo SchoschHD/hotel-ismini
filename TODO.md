@@ -25,6 +25,8 @@
 - [ ] E-Mail-Versand von der Buchung entkoppeln.
 - [ ] Eine Versandwarteschlange mit maximaler Versandmenge pro Minute einbauen.
 - [ ] Fehlgeschlagene E-Mails kontrolliert wiederholen, aber ohne Endlosschleife.
+- [ ] Bei Bestätigung einer Restaurantanfrage eine Bestätigungs-E-Mail an den Gast senden.
+- [ ] Bei Ablehnung einer Restaurantanfrage optional eine Benachrichtigungs-E-Mail an den Gast senden.
 - [ ] E-Mail-Versand mit einer echten Testadresse und deaktiviertem SMTP für Bot-Tests prüfen.
 - [ ] Niemals Testadressen wie `anna@example.com` für echte Zustelltests verwenden.
 
