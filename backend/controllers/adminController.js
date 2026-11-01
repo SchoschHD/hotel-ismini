@@ -47,7 +47,7 @@ async function cancelBooking(req, res, next) {
       rooms: booking.rooms,
       adults: booking.adults,
       email: booking.email,
-    });
+    }, { enabled: req.app.locals.emailEnabled });
     res.json({ status: "cancelled", ...email });
   } catch (error) {
     next(error);

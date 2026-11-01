@@ -94,7 +94,8 @@ function cancellationEmailMessage(booking, config = emailConfig()) {
   };
 }
 
-async function sendCancellationEmail(booking) {
+async function sendCancellationEmail(booking, { enabled = true } = {}) {
+  if (!enabled) return { emailSent: false, reason: "email_disabled_for_tests" };
   const config = emailConfig();
   if (!config.configured) {
     console.warn(`E-Mail-Versand deaktiviert: fehlende SMTP-Konfiguration (${config.missing.join(", ")})`);
@@ -113,7 +114,8 @@ async function sendCancellationEmail(booking) {
   }
 }
 
-async function sendBookingEmails(booking) {
+async function sendBookingEmails(booking, { enabled = true } = {}) {
+  if (!enabled) return { emailSent: false, reason: "email_disabled_for_tests" };
   const config = emailConfig();
   if (!config.configured) {
     console.warn(`E-Mail-Versand deaktiviert: fehlende SMTP-Konfiguration (${config.missing.join(", ")})`);

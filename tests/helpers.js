@@ -8,8 +8,10 @@ async function startTestServer(options = {}) {
   const db = openDatabase(":memory:");
   const app = createApp(db, {
     rateLimitMax: 1000,
+    bookingRateLimitMax: 1000,
     bookingGlobalRateLimitMax: 1000,
     bookingEmailRateLimitMax: 1000,
+    emailEnabled: false,
     ...options,
   });
   const server = await new Promise((resolve) => { const s = app.listen(0, () => resolve(s)); });

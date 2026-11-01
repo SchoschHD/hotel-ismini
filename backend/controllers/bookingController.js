@@ -11,7 +11,10 @@ async function createBooking(req, res, next) {
       undefined,
       req.app.locals.bookingLimits
     );
-    const email = await sendBookingEmails({ ...booking, ...req.body, email: req.body?.email });
+    const email = await sendBookingEmails(
+      { ...booking, ...req.body, email: req.body?.email },
+      { enabled: req.app.locals.emailEnabled }
+    );
     res.status(201).json({ ...booking, ...email });
   } catch (error) {
     next(error);

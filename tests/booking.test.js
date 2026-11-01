@@ -68,7 +68,7 @@ test("Zwei Zimmer in einer Buchung zählen doppelt", async (t) => {
 });
 
 test("Buchungsnummern sind eindeutig", async (t) => {
-  const s = await startTestServer(); t.after(s.close);
+  const s = await startTestServer({ bookingGlobalRateLimitMax: 100, bookingEmailRateLimitMax: 100 }); t.after(s.close);
   s.db.prepare("UPDATE room_types SET units = 50 WHERE id = 1").run();
   const numbers = new Set();
   for (let i = 0; i < 25; i++) numbers.add((await (await s.post("/api/bookings", bookingPayload())).json()).bookingNumber);
@@ -113,7 +113,7 @@ test("Webserver gibt keine internen Dateien heraus", async (t) => {
 });
 
 test("Rate-Limit schützt Schreib-Endpunkte", async (t) => {
-  const s = await startTestServer({ rateLimitMax: 3 }); t.after(s.close);
+  const s = await startTestServer({ rateLimitMax: 3, bookingRateLimitMax: 3 }); t.after(s.close);
   const statuses = [];
   for (let i = 0; i < 5; i++) statuses.push((await s.post("/api/bookings", bookingPayload({ roomId: 999 }))).status);
   assert.equal(statuses.at(-1), 429);

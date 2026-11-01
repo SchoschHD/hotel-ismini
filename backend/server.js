@@ -31,9 +31,11 @@ function createApp(db, {
   bookingRateLimitMax = positiveInt(process.env.BOOKING_RATE_LIMIT_MAX, rateLimitMax),
   bookingGlobalRateLimitMax = positiveInt(process.env.BOOKING_GLOBAL_RATE_LIMIT_MAX, 10),
   bookingEmailRateLimitMax = positiveInt(process.env.BOOKING_EMAIL_RATE_LIMIT_MAX, 3),
+  emailEnabled = true,
 } = {}) {
   const app = express();
   app.locals.db = db;
+  app.locals.emailEnabled = emailEnabled;
   app.locals.bookingLimits = {
     maxPerMinute: bookingGlobalRateLimitMax,
     maxPerEmailPerMinute: bookingEmailRateLimitMax,

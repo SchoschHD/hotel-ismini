@@ -37,6 +37,10 @@ bookings per rolling minute by default). These can be configured with
 automated booking and email spam; changing the SMTP password alone does not
 replace these limits.
 
+Tests disable email delivery automatically through the test server setup, even
+when SMTP variables exist in `.env`. Never remove that protection to run the
+test suite.
+
 To send a confirmation to the guest and a notification to the hotel after a booking, fill in all SMTP settings:
 
 ```env
